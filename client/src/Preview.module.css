@@ -5,19 +5,26 @@
   flex-flow: row nowrap;
   margin: 10px;
   height: 1000px;
+  overflow: hidden;
 }
 
 .icon-collumn {
   display: flex;
   flex-flow: column nowrap;
   gap: 10px;
+  margin-inline: 10px;
 }
 
 .main-preview {
-  max-width: 100%;
-  min-width: 100%;
-  width: auto;
-  height: 100%;
-  background-size: contain;
-  background-repeat: no-repeat;
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+
+  width: 40vw;
+  min-width: 400px;
+  max-width: 600px;
+}
+
+.rolloverText {
+  color: #7d7f83;
 }

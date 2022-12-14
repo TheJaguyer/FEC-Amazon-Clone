@@ -7,7 +7,7 @@ export default function Icon(props) {
   return (
     <div
       onMouseEnter={handleMouseEnter}
-      className={styles.Icon}
+      className={props.current ? styles.IconHovered : styles.Icon}
       style={{ backgroundImage: `URL(./images/${props.item}.jpg)` }}
     >
       {/* <img src={'./images/' + props.item + '.jpg'} alt="" className={styles.image} /> */}
