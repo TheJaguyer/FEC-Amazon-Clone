@@ -5,6 +5,7 @@ module.exports = {
   },
   production: {
     port: process.env.PORT,
-    connectionString: process.env.CONNECT + '?ssl=true',
+    connectionString:
+      'postgres://amazon_database_user:nYGWZMX6yX9VPlfHHRIkw2ACQL7qByss@dpg-ced088sgqg459grtpok0-a.oregon-postgres.render.com/amazon_database',
   },
 };
