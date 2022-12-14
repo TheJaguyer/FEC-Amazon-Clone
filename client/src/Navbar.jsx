@@ -1,33 +1,33 @@
 import React from 'react';
-import './Navbar.css';
+import styles from './Navbar.module.css';
 import { HiOutlineSearch, AiOutlineShoppingCart, IoLocationOutline } from 'react-icons/all';
 function Navbar() {
   return (
-    <div className="header">
-      <img className="amazon-logo" src="http://pngimg.com/uploads/amazon/amazon_PNG11.png" />
-      <div className="header">
+    <div className={styles.header}>
+      <img className={styles['amazon-logo']} src="http://pngimg.com/uploads/amazon/amazon_PNG11.png" />
+      <div className={styles.header}>
         <IoLocationOutline color="white" />
-        <div className="header__option">
-          <span className="header__optionLineOne">Hello</span>
-          <span className="header__optionLineTwo">Select your address</span>
+        <div className={styles.header__option}>
+          <span className={styles.header__optionLineOne}>Hello</span>
+          <span className={styles.header__optionLineTwo}>Select your address</span>
         </div>
       </div>
-      <div className="search-input-field-with-icon">
-        <input className="header__searchInput" type="text" />
-        <HiOutlineSearch className="header__searchIcon" />
+      <div className={styles['search-input-field-with-icon']}>
+        <input className={styles.header__searchInput} type="text" />
+        <HiOutlineSearch className={styles.header__searchIcon} />
       </div>
-      <div className="header__nav">
-        <div className="header__option">
-          <span className="header__optionLineOne">Hello, sign in</span>
-          <span className="header__optionLineTwo">Accounts & Lists</span>
+      <div className={styles.header__nav}>
+        <div className={styles.header__option}>
+          <span className={styles.header__optionLineOne}>Hello, sign in</span>
+          <span className={styles.header__optionLineTwo}>Accounts & Lists</span>
         </div>
-        <div className="header__option">
-          <span className="header__optionLineOne">Returns</span>
-          <span className="header__optionLineTwo">& Orders</span>
+        <div className={styles.header__option}>
+          <span className={styles.header__optionLineOne}>Returns</span>
+          <span className={styles.header__optionLineTwo}>& Orders</span>
         </div>
-        <div className="header__optionBasket">
-          <AiOutlineShoppingCart size="2em" />
-          <span className="header__optionLineTwo header__basketCount">0</span>
+        <div className={styles.header__optionBasket}>
+          <span className={styles.header__basketCount}>0</span>
+          <AiOutlineShoppingCart size="3em" style={{ position: 'absolute' }}></AiOutlineShoppingCart>
         </div>
       </div>
     </div>

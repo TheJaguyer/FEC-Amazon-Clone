@@ -1,0 +1,19 @@
+.App {
+  display: block;
+  min-width: 1000px;
+  height: 100%;
+}
+
+.main {
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+  height: 100%;
+}
+
+.centralCollumn {
+  display: block;
+  max-width: 1500px;
+  min-width: 1000px;
+  height: 100%;
+}
