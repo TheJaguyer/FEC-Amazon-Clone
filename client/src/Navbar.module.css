@@ -45,16 +45,16 @@
     'Helvetica Neue', sans-serif;
 }
 .header__optionBasket {
+  width: 60px;
   display: flex;
   align-items: center;
   color: white;
 }
 .header__basketCount {
-  margin-left: 5px;
-  margin-right: 10px;
+  position: 'absolute';
+  margin-left: 24px;
+  margin-bottom: 8px;
   color: #fcb250;
-  position: 'relative';
-  margin-top: -35px;
 }
 .header__nav {
   display: flex;
