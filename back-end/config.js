@@ -1,7 +1,7 @@
 module.exports = {
   dev: {
     port: 8000,
-    connectionString: 'postgresql://postgres:docker@127.0.0.1:5432/Amazon',
+    connectionString: 'postgresql://postgres:docker@127.0.0.1:5432/amazon',
   },
   production: {
     port: process.env.PORT,
