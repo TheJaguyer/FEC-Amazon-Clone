@@ -43,7 +43,7 @@ app.post('/amazon_qa', (req, res) => {
       if (error) {
         res.status(500).send(error);
       } else {
-        res.send(result.rows);
+        res.send(result.body);
       }
     }
   );

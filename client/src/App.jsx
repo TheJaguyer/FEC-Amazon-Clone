@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import Navbar from './Navbar.jsx';
-
+import AmazonQA from './q&a.jsx';
 import Preview from './Preview.jsx';
 import styles from './App.module.css';
 
@@ -25,12 +25,15 @@ function App() {
 
       <div className={styles.main}>
         <div className={styles.centralCollumn}>
+
           {appMode === 'NewReview' ? (
             <CreateReview {...appProps} />
           ) : (
             <>
               <Preview />
               <RecsSection />
+              
+          <AmazonQA />
               <ReviewsComponent {...appProps} />
             </>
           )}
