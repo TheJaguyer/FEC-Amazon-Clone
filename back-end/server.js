@@ -14,7 +14,7 @@ const port = config[process.env.NODE_ENV].port;
 
 const connectionString = config[process.env.NODE_ENV].connectionString;
 const pool = new Pool({ connectionString: connectionString });
-pool.connect();
+// pool.connect();
 
 /* ==================== Middleware ==================== */
 
@@ -33,12 +33,11 @@ app.get('/Amazon/:table', (req, res) => {
   });
 });
 
-
 /*======================routes for q&a==============================*/
-app.post("/amazon_qa", (req, res) => {
+app.post('/amazon_qa', (req, res) => {
   const { question, answer, product_id, rating } = req.body;
   pool.query(
-    "INSERT INTO amazon_qa (question, answer, product_id, rating) VALUES ($1, $2, $3, $4)",
+    'INSERT INTO amazon_qa (question, answer, product_id, rating) VALUES ($1, $2, $3, $4)',
     [question, answer, product_id, rating],
     (error, result) => {
       if (error) {
@@ -50,8 +49,8 @@ app.post("/amazon_qa", (req, res) => {
   );
 });
 
-app.get("/amazon_qa", (req, res) => {
-  pool.query("SELECT * FROM amazon_qa", (error, result) => {
+app.get('/amazon_qa', (req, res) => {
+  pool.query('SELECT * FROM amazon_qa', (error, result) => {
     if (error) {
       res.status(500).send(error);
     } else {
@@ -60,15 +59,15 @@ app.get("/amazon_qa", (req, res) => {
   });
 });
 
-app.get('/recs', (req, res)=>{
-  client.query('SELECT * FROM recommendations' )
-  .then((result)=>{
+app.get('/recs', (req, res) => {
+  pool
+    .query('SELECT * FROM recommendations')
+    .then((result) => {
       res.status(200).send(result.rows);
-  })
-  .catch((err)=>{
-      res.status(400).send('Cant GET data')
-  })
-
+    })
+    .catch((err) => {
+      res.status(400).send('Cant GET data');
+    });
 });
 
 /* ==================== Listener ==================== */
@@ -76,5 +75,3 @@ app.get('/recs', (req, res)=>{
 app.listen(port, () => {
   console.log(`Listening on port ${port}`);
 });
-
-
