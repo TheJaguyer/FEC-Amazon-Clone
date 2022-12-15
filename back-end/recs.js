@@ -16,7 +16,7 @@ app.use(cors());
 app.use(express.json());
 
 
-app.get('/amazon', (req, res)=>{
+app.get('/recs', (req, res)=>{
     client.query('SELECT * FROM recommendations' )
     .then((result)=>{
         res.status(200).send(result.rows);
