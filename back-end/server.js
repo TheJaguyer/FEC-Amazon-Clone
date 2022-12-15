@@ -33,8 +33,21 @@ app.get('/Amazon/:table', (req, res) => {
   });
 });
 
+
+app.get('/recs', (req, res)=>{
+  client.query('SELECT * FROM recommendations' )
+  .then((result)=>{
+      res.status(200).send(result.rows);
+  })
+  .catch((err)=>{
+      res.status(400).send('Cant GET data')
+  })
+});
+
 /* ==================== Listener ==================== */
 
 app.listen(port, () => {
   console.log(`Listening on port ${port}`);
 });
+
+
