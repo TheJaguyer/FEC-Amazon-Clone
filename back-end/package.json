@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "NODE_ENV=dev nodemon server.js",
+    "dev": "NODE_ENV=dev PORT=8000 nodemon server.js -L",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",

@@ -14,7 +14,7 @@ const port = config[process.env.NODE_ENV].port;
 
 const connectionString = config[process.env.NODE_ENV].connectionString;
 const pool = new Pool({ connectionString: connectionString });
-pool.connect();
+// pool.connect();
 
 /* ==================== Middleware ==================== */
 
@@ -31,6 +31,43 @@ app.get('/Amazon/:table', (req, res) => {
     res.send(result.rows);
     console.log(result.rows);
   });
+});
+
+/*======================routes for q&a==============================*/
+app.post('/amazon_qa', (req, res) => {
+  const { question, answer, product_id, rating } = req.body;
+  pool.query(
+    'INSERT INTO amazon_qa (question, answer, product_id, rating) VALUES ($1, $2, $3, $4)',
+    [question, answer, product_id, rating],
+    (error, result) => {
+      if (error) {
+        res.status(500).send(error);
+      } else {
+        res.send(result.rows);
+      }
+    }
+  );
+});
+
+app.get('/amazon_qa', (req, res) => {
+  pool.query('SELECT * FROM amazon_qa', (error, result) => {
+    if (error) {
+      res.status(500).send(error);
+    } else {
+      res.send(result.rows);
+    }
+  });
+});
+
+app.get('/recs', (req, res) => {
+  pool
+    .query('SELECT * FROM recommendations')
+    .then((result) => {
+      res.status(200).send(result.rows);
+    })
+    .catch((err) => {
+      res.status(400).send('Cant GET data');
+    });
 });
 
 /* ==================== Listener ==================== */
