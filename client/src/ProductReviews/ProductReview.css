@@ -1,0 +1,64 @@
+.product-review {
+display: flex;
+flex-direction: column;
+justify-content: left;
+
+}
+
+.submitReview {
+  border-radius: 10px;
+  height: 40px;
+  background-color: rgb(255, 198, 53);
+}
+
+
+.reviewBody {
+  max-width: 550px;
+}
+#verifiedReview{
+  color: rgb(141, 68, 12);
+  
+}
+#verifiedReview:hover {
+  text-decoration: underline;
+}
+#helpful {
+  border-radius: 10px;
+  height: 40px;
+}
+#helpful:hover {
+  text-decoration:underline;
+}
+.submitReview:hover {
+  text-decoration:underline;
+}
+
+.deviderLine {
+  border-bottom-style: 'solid';
+   border-width: '10px';
+}
+.container {
+  margin: 5px;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  
+}
+.clip-path-polygon-star {
+  display: flex;
+  flex-direction: row;
+	width: 23px;
+	height: 23px;
+	clip-path: polygon(
+		50% 0%,
+		61% 35%,
+		98% 35%,
+		68% 57%,
+		79% 91%,
+		50% 70%,
+		21% 91%,
+		32% 57%,
+		2% 35%,
+		39% 35%
+	);
+}
