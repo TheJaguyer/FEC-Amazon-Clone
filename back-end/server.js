@@ -44,7 +44,7 @@ app.post("/amazon_qa", (req, res) => {
       if (error) {
         res.status(500).send(error);
       } else {
-        res.send(result.rows);
+        res.send(result.body);
       }
     }
   );
@@ -58,6 +58,7 @@ app.get("/amazon_qa", (req, res) => {
       res.send(result.rows);
     }
   });
+});
 
 app.get('/recs', (req, res)=>{
   client.query('SELECT * FROM recommendations' )
