@@ -12,7 +12,6 @@
 
 .head {
   /* border: 0.5px solid gray; */
-
   height: 43px;
   min-width: 900px;
   max-width: relative;
@@ -55,7 +54,7 @@
 .items {
   height: 397px;
   width: 160px;
-  border: 0.5px solid gray;
+  /*border: 0.5px solid gray; */
 
 }
 .arrow-btn {
@@ -77,10 +76,11 @@
 }
 
 
-h2{
+h2.head{
     display: flex;
-    color: rgb(0, 0, 0);
+    color: rgb(204,102,0);
     font-size: 18px;
+
     flex-direction: row;
 }
 .product-img{

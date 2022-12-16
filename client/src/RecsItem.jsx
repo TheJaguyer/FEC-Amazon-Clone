@@ -17,18 +17,15 @@ const RecsItem = () => {
   const [isClimateFriendly, setIsClimateFriendly] = useState(false);
   const [itemData, setItemData] = useState([]);
 
-  useEffect(() => {
-    const items = async () => {
-      await fetch("https://fec-amazon-back-end.onrender.com/recs")
-        .then((res) => res.json())
-        .then((data) => setItemData(data));
-    };
+//   useEffect(() => {
+//        fetch("https://fec-amazon-back-end.onrender.com/recs")
+//         .then((res) => res.json())
+//         .then((data) => setItemData(data));
 
-    items();
-  }, []);
-
-//    console.log(itemData)
+//   });
+//   console.log(itemData)
 //   console.log(itemData[0].product_img);
+
 
   const str =
     productName ||
