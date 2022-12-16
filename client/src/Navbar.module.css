@@ -47,11 +47,12 @@
   width: 60px;
   display: flex;
   align-items: center;
+  margin-right: 16px;
   color: white;
 }
 .header__basketCount {
   position: 'absolute';
-  margin-left: 24px;
+  margin-left: 23px;
   margin-bottom: 8px;
   color: #fcb250;
 }
@@ -76,5 +77,4 @@
 }
 .home__container {
   display: block;
-  
 }

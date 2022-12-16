@@ -9,7 +9,7 @@ function ReviewsComponent(props) {
       </button>
 
       {props.reviews.map((item) => (
-        <ProductReview key={item.id} {...item} />
+        <ProductReview key={item.title} {...item} />
       ))}
     </>
   );
