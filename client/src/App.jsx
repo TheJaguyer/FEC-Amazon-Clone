@@ -6,7 +6,7 @@ import styles from './App.module.css';
 import RecsSection from './RecsSection.jsx';
 import ReviewsComponent from './ProductReviews/Comp.jsx';
 import CreateReview from './ProductReviews/CreateReview.jsx';
-
+import CarouselOne from './HomeCarousel.jsx';
 function App() {
   const [count, setCount] = useState(0);
   const [appMode, setAppMode] = useState('ItemPage');
@@ -21,7 +21,7 @@ function App() {
   return (
     <div className={styles.App}>
       <Navbar />
-
+      <CarouselOne/>
       <div className={styles.main}>
         <div className={styles.centralCollumn}>
           {appMode === 'NewReview' ? (
