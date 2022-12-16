@@ -1,6 +1,6 @@
 import ReactStars from 'react-rating-stars-component';
 
-import React from 'react';
+import React, { useState } from 'react';
 
 const ProductReview = (props) => {
   const starSettings = {
@@ -12,14 +12,15 @@ const ProductReview = (props) => {
     activeColor: 'yellow',
   };
 
-  var count = props.count;
+ var [count, setCount] = useState(0)
   return (
     <div className="product-review">
       <div>
-        {console.log(props.author)}
-        <h3>{props.author} </h3>
+        
+        <span>{props.username} </span>
+        <h2>{props.title}</h2>
         <h3>
-          {' '}
+          
           <ReactStars {...starSettings} />
         </h3>
         <div>Reviewed in the United States 🇺🇸 on December 5, 2022</div>
