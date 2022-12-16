@@ -1,19 +1,50 @@
-import React from "react";
+import { useEffect, useState } from "react";
+import { HiOutlineSearch } from "react-icons/all";
+import "./q&a.css";
 
-function AmazonQA(props) {
-    return (
-      <div>
-        <h2>Look for specific info?</h2>
-        <span class='search_product_subheader'>Search product info, Q&A, reviews</span>
-        <h2>{props.question}</h2>
-        <p>{props.answer}</p>
-        <p>
-          Product ID: {props.product_id}
-          Date Posted: {props.date_posted}
-          Rating: {props.rating}
-        </p>
+function AmazonQA() {
+  const [qaList, setQAList] = useState([]);
+  const [showAll, setShowAll] = useState(false);
+  useEffect(() => {
+    fetch("https://fec-amazon-back-end.onrender.com/amazon_qa")
+      .then((response) => response.json())
+      .then((data) => {
+        setQAList(data);
+      })
+      .catch((error) => {
+        // handle any errors
+        console.error(error);
+      });
+  }, []);
+
+  const qaListToShow = showAll ? qaList : qaList.slice(0, 1);
+
+  return (
+    <div className="qa">
+      <h2>Looking for specific info?</h2>
+      <span className="qa__search-label">
+        Search product info, Q&A, reviews
+      </span>
+      <div className="spacer">
+        <span className="qa__search-container">
+          <HiOutlineSearch />
+          <input type="text" placeholder="type a keyword" />
+        </span>
       </div>
-    );
-  }
-  
-  export default AmazonQA;
+      <h2 className="qa__header">Customer Questions & Answers</h2>
+      {qaListToShow.map((item) => (
+        <div key={item.product_id} className="qa__item">
+          <h5 className="qa__item__question">Question: {item.question}</h5>
+          <p className="qa__item__answer">Answer: {item.answer}</p>
+        </div>
+      ))}
+      <button type="button"
+        onClick={() => setShowAll(!showAll)}
+        className="qa__show-all-button">
+        {showAll ? "Show less" : "Show more"}
+      </button>
+    </div>
+  );
+}
+
+export default AmazonQA;
