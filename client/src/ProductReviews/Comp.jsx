@@ -11,7 +11,7 @@ const review = {
 };
 var newReview = { ...review };
 
-function ReviewsComponent(appProps) {
+function ReviewsComponent(props) {
   const [mode, setMode] = useState('Reviews');
 
   const [currentUser, setCurrentUser] = useState('');
@@ -29,35 +29,8 @@ function ReviewsComponent(appProps) {
   const [reviewArray, setReviewArray] = useState([review]);
 
   //(mode === "Reviews") ? <ProductReview/> : <CreateReview/>
-
-  var props = {
-    ...appProps,
-    mode,
-    setMode,
-    currentReviewBody,
-    setCurrentReviewBody,
-    submitedReview,
-    setSubmitedReview,
-    reviewArray,
-    setReviewArray,
-    currentUser,
-    setCurrentUser,
-    submittedUser,
-    setSubmittedUser,
-    currentRating,
-    setRating,
-    submittedRating,
-    setSubmittedRating,
-    title,
-    setTitle,
-    submittedTitle,
-    setSubmittedTitle,
-  };
-  const appNewReview = () => {
-    appProps.setAppMode('NewReview');
-  };
   const handleClick = () => {
-    setMode('Reviews');
+    setAppModeMode('ItemPage');
 
     setSubmittedUser(currentUser);
     setSubmitedReview(currentReviewBody);
@@ -74,12 +47,12 @@ function ReviewsComponent(appProps) {
     });
     console.log(reviewArray);
   };
+ 
+ 
   if (mode === 'Reviews') {
     return (
       <>
-        <button className="submitReview" onClick={appNewReview}>
-          New Review
-        </button>
+        
         {reviewArray.map((item) => (
           <ProductReview key={item.id} {...item} />
         ))}
@@ -89,9 +62,7 @@ function ReviewsComponent(appProps) {
     return (
       <>
         <CreateReview {...props} />
-        <button className="submitReview" onClick={handleClick}>
-          submit
-        </button>
+        
       </>
     );
   }

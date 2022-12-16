@@ -1,6 +1,6 @@
 import { useState } from "react";
 import CreateReview from "./CreateReview.jsx";
-import Rating from './StarReview'
+import StarRating from './StarReview'
 // var ProductReview = (props)=> {
 
 
@@ -13,13 +13,13 @@ import Rating from './StarReview'
 import React from 'react';
 
 const ProductReview = (props) => {
-  const [count, setCount]= useState(0)
-  
+ var count = props.count
+  // const [count, setCount] = useState(0);
   return (
     <div className="product-review">
-    <div>
+    <div>{console.log(props.author)}
     <h3>{props.author} </h3>
-      <h3> <Rating/> {props.title} </h3>
+      <h3> <StarRating/> {props.title} </h3>
       <div>Reviewed in the United States 🇺🇸 on December 5, 2022</div>
       <div id="verifiedReview">Verified Review</div>
         

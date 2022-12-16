@@ -11,7 +11,8 @@ const CreateReview = (props)=>{
     props.setCurrentUser(event.target.value)
   }
   const handleCurrentRating = (event)=> {
-    props.setSubmittedRating(event.target.value)
+    props.setCurrentRating(event.target.value)
+    console.log(props.submittedRating)
   }
   const handleCurrentHeadline = (event)=>{
     props.setTitle(event.target.value)
@@ -65,6 +66,7 @@ const CreateReview = (props)=>{
             <br/>
             <span>Don’t worry, you can always change this on your profile</span></form>
           </div>
+         
   </div>
     )
 }
