@@ -18,7 +18,7 @@ export default function Preview(props) {
       x: (100 * (e.clientX - box.left)) / box.width,
       y: (100 * (e.clientY - box.top)) / box.height,
       zoomleft: box.right,
-      zoomtop: box.top,
+      zoomtop: 485,
     });
   }
 
