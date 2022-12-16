@@ -1,10 +1,9 @@
 .previewCollumn {
-  max-width: 660px;
-  min-width: 440px;
   display: flex;
   flex-flow: row nowrap;
   margin: 10px;
   overflow: hidden;
+  width: 100%;
 }
 
 .icon-collumn {
@@ -17,8 +16,9 @@
 .main-preview {
   display: flex;
   flex-flow: column nowrap;
-  align-items: center;
+}
 
+.main-preview-image {
   width: 40vw;
   min-width: 400px;
   max-width: 600px;
@@ -26,4 +26,5 @@
 
 .rolloverText {
   color: #7d7f83;
+  align-self: center;
 }
