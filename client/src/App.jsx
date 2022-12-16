@@ -3,9 +3,11 @@ import Navbar from './Navbar.jsx';
 import AmazonQA from './q&a.jsx';
 import Preview from './Preview.jsx';
 import styles from './App.module.css';
+import RecsSection from './RecsSection.jsx';
 import ReviewsComponent from './ProductReviews/Comp.jsx';
 import CreateReview from './ProductReviews/CreateReview.jsx';
 import RecsSection from './recs.jsx';
+
 
 function App() {
   const [count, setCount] = useState(0);
