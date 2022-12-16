@@ -3,7 +3,7 @@ import Navbar from './Navbar.jsx';
 
 import Preview from './Preview.jsx';
 import styles from './App.module.css';
-import RecsSection from './recs.jsx';
+import RecsSection from './RecsSection.jsx';
 
 function App() {
   const [count, setCount] = useState(0);
