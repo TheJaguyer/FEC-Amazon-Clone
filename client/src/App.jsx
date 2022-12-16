@@ -6,8 +6,6 @@ import styles from './App.module.css';
 import RecsSection from './RecsSection.jsx';
 import ReviewsComponent from './ProductReviews/Comp.jsx';
 import CreateReview from './ProductReviews/CreateReview.jsx';
-import RecsSection from './recs.jsx';
-
 
 function App() {
   const [count, setCount] = useState(0);
@@ -26,15 +24,14 @@ function App() {
 
       <div className={styles.main}>
         <div className={styles.centralCollumn}>
-
           {appMode === 'NewReview' ? (
             <CreateReview {...appProps} />
           ) : (
             <>
               <Preview />
               <RecsSection />
-              
-          <AmazonQA />
+
+              <AmazonQA />
               <ReviewsComponent {...appProps} />
             </>
           )}
