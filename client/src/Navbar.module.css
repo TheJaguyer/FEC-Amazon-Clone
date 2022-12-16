@@ -3,7 +3,6 @@
   display: flex;
   align-items: center;
   background-color: #0f1926;
-  position: sticky;
   top: 0;
   z-index: 100;
 }
@@ -74,4 +73,8 @@
   border-style: solid;
   border-color: white;
   border-width: 1px;
+}
+.home__container {
+  display: block;
+  
 }

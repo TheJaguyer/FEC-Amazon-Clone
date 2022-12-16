@@ -3,9 +3,11 @@ import Navbar from './Navbar.jsx';
 import AmazonQA from './q&a.jsx';
 import Preview from './Preview.jsx';
 import styles from './App.module.css';
+
+import RecsSection from './RecsSection.jsx';
 import ReviewsComponent from './ProductReviews/ReviewsComponent.jsx';
+
 import CreateReview from './ProductReviews/CreateReview.jsx';
-import RecsSection from './recs.jsx';
 
 const review = {
   title: 'Great controller',
@@ -24,8 +26,10 @@ function App() {
 
       <div className={styles.main}>
         <div className={styles.centralCollumn}>
+
           {reviewMode ? (
             <CreateReview setReviews={setReviews} setReviewMode={setReviewMode} />
+
           ) : (
             <>
               <Preview />
@@ -33,7 +37,9 @@ function App() {
 
               <AmazonQA />
 
+
               <ReviewsComponent reviews={reviews} setReviewMode={setReviewMode} />
+
             </>
           )}
         </div>
