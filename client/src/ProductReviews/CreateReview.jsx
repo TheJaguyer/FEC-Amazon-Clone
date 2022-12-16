@@ -3,6 +3,7 @@ import StarReview from './StarReview';
 import './ProductReview.css';
 
 const CreateReview = (props) => {
+
   const [currentOverallRating, setCurrentOverallRating] = useState(4);
   const [currentValueRating, setCurrentValueRating] = useState(4);
   const [currentBatteryRating, setCurrentBatteryRating] = useState(4);
@@ -10,6 +11,7 @@ const CreateReview = (props) => {
   const [headline, setHeadline] = useState('');
   const [review, setReview] = useState('');
   const [name, setName] = useState('');
+
 
   const handleHeadlineChange = (event) => {
     setHeadline(event.target.value);
@@ -26,9 +28,18 @@ const CreateReview = (props) => {
     newReveiw.title = headline;
     newReveiw.body = review;
     newReveiw.rating = currentOverallRating;
-    newReveiw.author = name;
+    newReveiw.username = name;
     props.setReviews((prev) => [...prev, newReveiw]);
     props.setReviewMode(false);
+
+    fetch('https://fec-amazon-back-end.onrender.com/reviews', {method: 'post', body: JSON.stringify(props.reviews)})
+    .then((response)=>response.json())
+    .then((data)=>{
+      console.log(data)
+      
+    }
+    )
+    .catch((err)=> console.error(err.stack))
   };
 
   return (
@@ -84,7 +95,7 @@ const CreateReview = (props) => {
         <br />
         <span>Don't worry, you can always change this on your profile</span>
       </div>
-      <button onClick={handleSubmit}>Submit</button>
+      <button className='submitReview' style={{marginLeft: '550px'}} onClick={handleSubmit}>Submit</button>
     </div>
   );
 };

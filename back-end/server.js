@@ -69,7 +69,24 @@ app.get('/recs', (req, res) => {
       res.status(400).send('Cant GET data');
     });
 });
+/*======================routes for reviews==============================*/
+app.post('/reviews', (req, res)=> {
+  pool.query(`INSERT INTO reviews (title, body, rating, username ) VALUES ($1,$2,$3,$4)`, 
+  [req.body.title, req.body.body, req.body.rating, req.body.username]),
+   (error, result) => {
+    if (error) {
+      res.status(500).send(error);
+    } else {
+      res.send(result.body);
+    }
+  }
+}
+);
 
+// newReveiw.title = headline;
+//     newReveiw.body = review;
+//     newReveiw.rating = currentOverallRating;
+//     newReveiw.username = name;
 /* ==================== Listener ==================== */
 
 app.listen(port, () => {

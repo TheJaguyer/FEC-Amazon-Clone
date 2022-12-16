@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { useEffect } from 'react';
 import Navbar from './Navbar.jsx';
 import AmazonQA from './q&a.jsx';
 import Preview from './Preview.jsx';
@@ -24,17 +25,30 @@ function App() {
   const [reviewMode, setReviewMode] = useState(false);
 
   // fetch and post reviews
+  useEffect(()=>{
+   
+   fetch('https://fec-amazon-back-end.onrender.com/Amazon/reviews')
+  .then((response)=>response.json())
+  .then((data)=>{
+    console.log(data)
+    setReviews(data)
+  }
+  )
+  .catch((err)=> console.error(err.stack))
 
+  }, [])
+  
   return (
     <div className={styles.App}>
       <Navbar />
-      <CarouselOne/>
+     
       <div className={styles.main}>
         <div className={styles.centralCollumn}>
           {reviewMode ? (
             <CreateReview setReviews={setReviews} setReviewMode={setReviewMode} />
           ) : (
             <>
+              <CarouselOne/>
               <Preview />
               <RecsSection />
 
