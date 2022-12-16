@@ -33,13 +33,6 @@ function Navbar() {
           </div>
         </div>
       </div>
-      <div className="home__container">
-        <img
-          className="home__image"
-          src='/images/header.jpg'
-          alt=""
-        />
-      </div>
     </div>
   );
 }

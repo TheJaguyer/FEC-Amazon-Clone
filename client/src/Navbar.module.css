@@ -27,10 +27,10 @@
 }
 .header__searchIcon {
   padding: 4px;
-  height: 30px;
+  height: 28px;
   width: 32px;
   background-color: #fcb250;
-  border-radius: 0px 8px 8px 0px;
+  border-radius: 0px 5px 5px 0px;
 }
 .header__optionLineOne {
   font-size: 10px;
