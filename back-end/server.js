@@ -34,6 +34,7 @@ app.get('/Amazon/:table', (req, res) => {
 });
 
 /*======================routes for q&a==============================*/
+
 app.post('/amazon_qa', (req, res) => {
   const { question, answer, product_id, rating } = req.body;
   pool.query(
@@ -70,6 +71,23 @@ app.get('/recs', (req, res) => {
     });
 });
 
+/*======================routes for reviews==============================*/
+
+app.post('/reviews', (req, res)=> {
+  pool.query(`INSERT INTO reviews (title, body, rating, username ) VALUES ($1,$2,$3,$4)`, 
+  [req.body.title, req.body.body, req.body.rating, req.body.username]),
+   (error, result) => {
+    if (error) {
+      res.status(500).send(error);
+    } else {
+      res.send(result.body);
+    }
+  }
+}
+);
+
+
+
 app.post('/recs', (req, res) => {
   let rec = req.body;
   let product_img = rec.product_img;
@@ -93,6 +111,7 @@ app.post('/recs', (req, res) => {
     }
   });
 });
+
 
 /* ==================== Listener ==================== */
 
