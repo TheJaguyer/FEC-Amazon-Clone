@@ -3,8 +3,7 @@ import Navbar from './Navbar.jsx';
 import AmazonQA from './q&a.jsx';
 import Preview from './Preview.jsx';
 import styles from './App.module.css';
-
-import ReviewsComponent from './ProductReviews/Comp.jsx';
+import ReviewsComponent from './ProductReviews/ReviewsComponent.jsx';
 import CreateReview from './ProductReviews/CreateReview.jsx';
 import RecsSection from './recs.jsx';
 
@@ -14,60 +13,10 @@ const review = {
   rating: 5,
   author: 'John Doe',
 };
-var newReview = { ...review };
+
 function App() {
-  const [count, setCount] = useState(0);
-  const [appMode, setAppMode] = useState('ItemPage');
-
-  const [currentUser, setCurrentUser] = useState('');
-  const [submittedUser, setSubmittedUser] = useState(currentUser);
-
-  const [currentRating, setRating] = useState(0);
-  const [submittedRating, setSubmittedRating] = useState(currentRating);
-
-  const [title, setTitle] = useState('');
-  const [submittedTitle, setSubmittedTitle] = useState(title);
-
-  const [currentReviewBody, setCurrentReviewBody] = useState('');
-  const [submitedReview, setSubmitedReview] = useState(currentReviewBody);
-
-  const [reviewArray, setReviewArray] = useState([review]);
-  const handleClick = () => {
-    setAppMode('ItemPage');
-
-    setSubmittedUser(currentUser);
-    setSubmitedReview(currentReviewBody);
-    setSubmittedRating(currentRating);
-    setSubmittedTitle(title);
-
-    newReview.title = title;
-    newReview.rating = submittedRating;
-    newReview.author = currentUser;
-    newReview.body = currentReviewBody;
-
-    setReviewArray((prev) => {
-      return [...prev, newReview];
-    });
-    console.log(reviewArray);
-  };
-  let appProps = {
-    count,
-    setCount,
-    appMode,
-    setAppMode,
-  };
-  var props = {
-    ...appProps,
-    currentReviewBody, setCurrentReviewBody,
-    submitedReview, setSubmitedReview,
-    reviewArray, setReviewArray,
-    currentUser, setCurrentUser,
-    submittedUser, setSubmittedUser,
-    currentRating,setRating,
-    submittedRating,setSubmittedRating,
-    title,setTitle,
-    submittedTitle, setSubmittedTitle,
-  };
+  const [reviews, setReviews] = useState([review]);
+  const [reviewMode, setReviewMode] = useState(false);
 
   return (
     <div className={styles.App}>
@@ -75,26 +24,18 @@ function App() {
 
       <div className={styles.main}>
         <div className={styles.centralCollumn}>
-
-          {appMode === 'NewReview' ? (
-            <>
-            <CreateReview {...props} />
-            <button onClick={handleClick}>Submit</button>
-            </>
+          {reviewMode ? (
+            <CreateReview setReviews={setReviews} setReviewMode={setReviewMode} />
           ) : (
             <>
               <Preview />
               <RecsSection />
-              
-          <AmazonQA />
-          <button className="submitReview" onClick={()=> setAppMode('NewReview')}>
-          New Review
-        </button>
-             {reviewArray.map((item)=>
-                <ReviewsComponent key={item.id} {...props} {...item}/>)} 
+
+              <AmazonQA />
+
+              <ReviewsComponent reviews={reviews} setReviewMode={setReviewMode} />
             </>
           )}
-          
         </div>
       </div>
     </div>
