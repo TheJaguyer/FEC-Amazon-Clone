@@ -34,6 +34,7 @@ app.get('/Amazon/:table', (req, res) => {
 });
 
 /*======================routes for q&a==============================*/
+
 app.post('/amazon_qa', (req, res) => {
   const { question, answer, product_id, rating } = req.body;
   pool.query(
@@ -69,7 +70,9 @@ app.get('/recs', (req, res) => {
       res.status(400).send('Cant GET data');
     });
 });
+
 /*======================routes for reviews==============================*/
+
 app.post('/reviews', (req, res)=> {
   pool.query(`INSERT INTO reviews (title, body, rating, username ) VALUES ($1,$2,$3,$4)`, 
   [req.body.title, req.body.body, req.body.rating, req.body.username]),
@@ -83,10 +86,33 @@ app.post('/reviews', (req, res)=> {
 }
 );
 
-// newReveiw.title = headline;
-//     newReveiw.body = review;
-//     newReveiw.rating = currentOverallRating;
-//     newReveiw.username = name;
+
+
+app.post('/recs', (req, res) => {
+  let rec = req.body;
+  let product_img = rec.product_img;
+  let product_name = rec.product_name;
+  let product_seller = rec.product_seller;
+  let num_reviews = rec.num_reviews;
+  let operating_system = rec.operating_system;
+  let price = rec.price;
+  let is_best_seller = rec.is_best_seller;
+  let is_limited_time_deal = rec.is_limited_time_deal;
+  let is_prime_delivery = rec.is_prime_delivery;
+  let limited_time_end = rec.limited_time_end;
+  let is_climate_friendly = rec.is_climate_friendly;
+  pool.query('INSERT INTO recommendations (product_img, product_name, product_seller, num_reviews, operating_system, price, is_best_seller, is_limited_time_deal, is_prime_delivery, limited_time_end, is_offers, is_climate_friendly) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12)',
+  [product_img, product_name, product_seller, num_reviews, operating_system, price, is_best_seller, is_limited_time_deal, is_prime_delivery, limited_time_end, is_offers, is_climate_friendly],
+  (error, result) => {
+    if (error) {
+      res.status(500).send(error)
+    }else{
+      res.send(result.rows)
+    }
+  });
+});
+
+
 /* ==================== Listener ==================== */
 
 app.listen(port, () => {
