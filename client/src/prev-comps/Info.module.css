@@ -1,0 +1,52 @@
+.infoColumn {
+  display: flex;
+  flex-flow: column nowrap;
+  min-width: 250px;
+  max-width: 520px;
+  align-items: left;
+  margin-inline: 10px;
+}
+
+.title {
+  font-size: 24px;
+  word-break: break-word;
+}
+
+.brand {
+  color: #007185;
+  font-size: 14px;
+  text-decoration: none;
+}
+
+.brand:hover {
+  text-decoration: underline;
+}
+
+.dataBar {
+  color: #007185;
+  font-size: 14px;
+  text-decoration: none;
+}
+
+.price {
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: top;
+  font-weight: 500;
+}
+
+.dollarSign {
+  font-size: 13px;
+}
+.priceDollars {
+  font-size: 28px;
+}
+.priceCents {
+  font-size: 13px;
+}
+
+/* blue 0, 133, 133:   blue for links
+
+red 177, 39, 4
+
+orange: 204, 102, 0 */
