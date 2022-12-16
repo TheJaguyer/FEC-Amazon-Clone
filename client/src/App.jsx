@@ -20,16 +20,16 @@ function App() {
   const [reviews, setReviews] = useState([review]);
   const [reviewMode, setReviewMode] = useState(false);
 
+  // fetch and post reviews
+
   return (
     <div className={styles.App}>
       <Navbar />
 
       <div className={styles.main}>
         <div className={styles.centralCollumn}>
-
           {reviewMode ? (
             <CreateReview setReviews={setReviews} setReviewMode={setReviewMode} />
-
           ) : (
             <>
               <Preview />
@@ -37,9 +37,7 @@ function App() {
 
               <AmazonQA />
 
-
               <ReviewsComponent reviews={reviews} setReviewMode={setReviewMode} />
-
             </>
           )}
         </div>
