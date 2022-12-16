@@ -3,7 +3,6 @@
   display: flex;
   align-items: center;
   background-color: #0f1926;
-  position: sticky;
   top: 0;
   z-index: 100;
 }
@@ -28,10 +27,10 @@
 }
 .header__searchIcon {
   padding: 4px;
-  height: 30px;
+  height: 28px;
   width: 32px;
   background-color: #fcb250;
-  border-radius: 0px 8px 8px 0px;
+  border-radius: 0px 5px 5px 0px;
 }
 .header__optionLineOne {
   font-size: 10px;
@@ -48,11 +47,12 @@
   width: 60px;
   display: flex;
   align-items: center;
+  margin-right: 16px;
   color: white;
 }
 .header__basketCount {
   position: 'absolute';
-  margin-left: 24px;
+  margin-left: 23px;
   margin-bottom: 8px;
   color: #fcb250;
 }
@@ -74,4 +74,7 @@
   border-style: solid;
   border-color: white;
   border-width: 1px;
+}
+.home__container {
+  display: block;
 }

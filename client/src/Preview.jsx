@@ -2,7 +2,7 @@ import { useState } from 'react';
 import styles from './Preview.module.css';
 import Icon from './prev-comps/Icon.jsx';
 import Zoom from './prev-comps/Zoom.jsx';
-import { BiBody } from 'react-icons/bi';
+import Info from './prev-comps/Info.jsx';
 
 const imageList = ['A', 'B', 'C', 'D', 'E', 'F', 'G'];
 
@@ -18,7 +18,7 @@ export default function Preview(props) {
       x: (100 * (e.clientX - box.left)) / box.width,
       y: (100 * (e.clientY - box.top)) / box.height,
       zoomleft: box.right,
-      zoomtop: box.top,
+      zoomtop: 485,
     });
   }
 
@@ -37,14 +37,15 @@ export default function Preview(props) {
         <img
           src={`/images/${current}.jpg`}
           alt=""
-          className={styles['main-preview']}
-          style={{ width: '40vw' }}
+          className={styles['main-preview-image']}
           onMouseMove={(e) => handleMouseMove(e)}
           onMouseEnter={() => setZooming(true)}
           onMouseLeave={() => setZooming(false)}
         />
         <div className={styles.rolloverText}>Roll over image to zoom in</div>
       </div>
+      <Info />
+      <div style={{ minWidth: '200px' }}></div>
       {zooming && <Zoom current={current} {...zoomProps} />}
     </div>
   );
