@@ -18,7 +18,7 @@ export default function Preview(props) {
       x: (100 * (e.clientX - box.left)) / box.width,
       y: (100 * (e.clientY - box.top)) / box.height,
       zoomleft: box.right,
-      zoomtop: 485,
+      zoomtop: box.top + window.pageYOffset,
     });
   }
 
@@ -35,7 +35,7 @@ export default function Preview(props) {
       </div>
       <div className={styles['main-preview']}>
         <img
-          src={`/images/${current}.jpg`}
+          src={`./preview-images/${current}.jpg`}
           alt=""
           className={styles['main-preview-image']}
           onMouseMove={(e) => handleMouseMove(e)}
@@ -45,7 +45,7 @@ export default function Preview(props) {
         <div className={styles.rolloverText}>Roll over image to zoom in</div>
       </div>
       <Info />
-      <div style={{ minWidth: '200px' }}></div>
+      {/* <div style={{ minWidth: '200px' }}></div> */}
       {zooming && <Zoom current={current} {...zoomProps} />}
     </div>
   );

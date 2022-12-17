@@ -1,16 +1,13 @@
 import { useState } from 'react';
 import { useEffect } from 'react';
-import Navbar from './Navbar.jsx';
-import AmazonQA from './q&a.jsx';
-import Preview from './Preview.jsx';
+import Navbar from '../1-Navbar/Navbar.jsx';
+import AmazonQA from '../4-Q&A/q&a.jsx';
+import Preview from '../3-ImagePreview/Preview.jsx';
 import styles from './App.module.css';
-
-import RecsSection from './RecsSection.jsx';
-import ReviewsComponent from './ProductReviews/ReviewsComponent.jsx';
-
-import CreateReview from './ProductReviews/CreateReview.jsx';
-
-import CarouselOne from './HomeCarousel.jsx';
+import RecsSection from '../5-Recommendations/RecsSection.jsx';
+import ReviewsComponent from '../6-ProductReviews/ReviewsComponent.jsx';
+import CreateReview from '../6-ProductReviews/CreateReview.jsx';
+import CarouselOne from '../2-Carousel/HomeCarousel.jsx';
 
 const review = {
   title: 'Great controller',
@@ -24,19 +21,16 @@ function App() {
   const [reviewMode, setReviewMode] = useState(false);
 
   // fetch and post reviews
-  useEffect(()=>{
-   
-   fetch('https://fec-amazon-back-end.onrender.com/Amazon/reviews')
-  .then((response)=>response.json())
-  .then((data)=>{
-    console.log(data)
-    setReviews(data)
-  }
-  )
-  .catch((err)=> console.error(err.stack))
+  useEffect(() => {
+    fetch('https://fec-amazon-back-end.onrender.com/Amazon/reviews')
+      .then((response) => response.json())
+      .then((data) => {
+        // console.log(data)
+        setReviews(data);
+      })
+      .catch((err) => console.error(err.stack));
+  }, []);
 
-  }, [])
-  
   return (
     <div className={styles.App}>
       <Navbar />
@@ -47,8 +41,7 @@ function App() {
             <CreateReview setReviews={setReviews} setReviewMode={setReviewMode} />
           ) : (
             <>
-
-              <CarouselOne/>
+              <CarouselOne />
 
               <Preview />
               <RecsSection />

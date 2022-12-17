@@ -8,8 +8,8 @@ function ReviewsComponent(props) {
         New Review
       </button>
 
-      {props.reviews.map((item) => (
-        <ProductReview key={item.title} {...item} />
+      {props.reviews.map((item, index) => (
+        <ProductReview key={index} {...item} />
       ))}
     </>
   );
