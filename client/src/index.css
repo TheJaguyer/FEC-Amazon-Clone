@@ -1,6 +1,6 @@
 @font-face {
   font-family: Ember;
-  src: url('./font/AmazonEmber_Rg.ttf');
+  src: url('../font/AmazonEmber_Rg.ttf');
 }
 
 html,
@@ -8,6 +8,7 @@ body,
 #root {
   height: 100vh;
   width: 100vw;
+  max-width: 100%;
   margin: 0;
   padding: 0;
 }

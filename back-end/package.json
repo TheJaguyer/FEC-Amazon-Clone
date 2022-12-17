@@ -4,8 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "NODE_ENV=dev PORT=8000 nodemon server.js -L",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "Connection-String='postgresql://postgres:docker@127.0.0.1:5432/amazon' PORT=8000 nodemon server.js"
   },
   "author": "",
   "license": "ISC",
