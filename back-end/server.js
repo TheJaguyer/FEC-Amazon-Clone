@@ -8,13 +8,12 @@ const config = require('./config.js');
 /* ==================== Initialize Express ==================== */
 
 const app = express();
-const port = config[process.env.NODE_ENV].port;
+const port = config.port;
 
 /* ==================== Initialize Pool ==================== */
 
-const connectionString = config[process.env.NODE_ENV].connectionString;
+const connectionString = config.connectionString;
 const pool = new Pool({ connectionString: connectionString });
-// pool.connect();
 
 /* ==================== Middleware ==================== */
 
@@ -23,7 +22,7 @@ app.use(express.json());
 
 /* ==================== Routes ==================== */
 
-/* ========== Read ========== */
+/* ========== General ========== */
 
 // Get full tables
 app.get('/Amazon/:table', (req, res) => {
@@ -33,7 +32,7 @@ app.get('/Amazon/:table', (req, res) => {
   });
 });
 
-/*======================routes for q&a==============================*/
+/* ========== Q&A Routes ========== */
 
 app.post('/amazon_qa', (req, res) => {
   const { question, answer, product_id, rating } = req.body;
@@ -60,6 +59,8 @@ app.get('/amazon_qa', (req, res) => {
   });
 });
 
+/* ========== Recommendation Routes ========== */
+
 app.get('/recs', (req, res) => {
   pool
     .query('SELECT * FROM recommendations')
@@ -67,26 +68,9 @@ app.get('/recs', (req, res) => {
       res.status(200).send(result.rows);
     })
     .catch((err) => {
-      res.status(400).send('Cant GET data');
+      res.status(400).send('Failed to GET recommendations');
     });
 });
-
-/*======================routes for reviews==============================*/
-
-app.post('/reviews', (req, res)=> {
-  pool.query(`INSERT INTO reviews (title, body, rating, username ) VALUES ($1,$2,$3,$4)`, 
-  [req.body.title, req.body.body, req.body.rating, req.body.username]),
-   (error, result) => {
-    if (error) {
-      res.status(500).send(error);
-    } else {
-      res.send(result.body);
-    }
-  }
-}
-);
-
-
 
 app.post('/recs', (req, res) => {
   let rec = req.body;
@@ -101,17 +85,49 @@ app.post('/recs', (req, res) => {
   let is_prime_delivery = rec.is_prime_delivery;
   let limited_time_end = rec.limited_time_end;
   let is_climate_friendly = rec.is_climate_friendly;
-  pool.query('INSERT INTO recommendations (product_img, product_name, product_seller, num_reviews, operating_system, price, is_best_seller, is_limited_time_deal, is_prime_delivery, limited_time_end, is_offers, is_climate_friendly) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12)',
-  [product_img, product_name, product_seller, num_reviews, operating_system, price, is_best_seller, is_limited_time_deal, is_prime_delivery, limited_time_end, is_offers, is_climate_friendly],
-  (error, result) => {
-    if (error) {
-      res.status(500).send(error)
-    }else{
-      res.send(result.rows)
+  pool.query(
+    'INSERT INTO recommendations (product_img, product_name, product_seller, num_reviews, operating_system, price, is_best_seller, is_limited_time_deal, is_prime_delivery, limited_time_end, is_offers, is_climate_friendly) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12)',
+    [
+      product_img,
+      product_name,
+      product_seller,
+      num_reviews,
+      operating_system,
+      price,
+      is_best_seller,
+      is_limited_time_deal,
+      is_prime_delivery,
+      limited_time_end,
+      is_offers,
+      is_climate_friendly,
+    ],
+    (error, result) => {
+      if (error) {
+        res.status(500).send(error);
+      } else {
+        res.send(result.rows);
+      }
     }
-  });
+  );
 });
 
+/* ========== Product Review Routes ========== */
+
+app.post('/reviews', (req, res) => {
+  pool.query(`INSERT INTO reviews (title, body, rating, username ) VALUES ($1,$2,$3,$4)`, [
+    req.body.title,
+    req.body.body,
+    req.body.rating,
+    req.body.username,
+  ]),
+    (error, result) => {
+      if (error) {
+        res.status(500).send(error);
+      } else {
+        res.send(result.body);
+      }
+    };
+});
 
 /* ==================== Listener ==================== */
 

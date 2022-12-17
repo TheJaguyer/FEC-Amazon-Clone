@@ -1,13 +1,16 @@
 .recs-section-big {
   /*border: 5px solid gray;*/
-  max-width: 1370;
+
+  min-width: 1000px;
+  max-width: 1500px;
+  margin: 10px;
 }
 
 .recs-section {
   /* border: 0.5px solid gray; */
   height: 443px;
-  min-width: 900px;
-  max-width: 1200;
+  min-width: 1000px;
+  max-width: 1500px;
 }
 
 .head {
@@ -32,7 +35,6 @@
 }
 
 .left-side {
-  /* border: 0.5px solid gray; */
   display: flex;
   justify-content: center;
   align-content: center;
@@ -55,7 +57,6 @@
   height: 397px;
   width: 160px;
   /*border: 0.5px solid gray; */
-
 }
 .arrow-btn {
   box-shadow: 0px 5px 10px 2px rgba(0, 0, 0, 0.2);
@@ -75,75 +76,75 @@
   cursor: pointer;
 }
 
+h2.head {
+  display: flex;
+  color: rgb(204, 102, 0);
+  font-size: 18px;
 
-h2.head{
-    display: flex;
-    color: rgb(204,102,0);
-    font-size: 18px;
-
-    flex-direction: row;
+  flex-direction: row;
 }
-.product-img{
-    height: 160px;
-    width: 160px;
-    margin-bottom: 5px;
+.product-img {
+  height: 160px;
+  width: 160px;
+  margin-bottom: 5px;
 }
-.product-img:hover{
-    cursor: pointer;
-}
-
-.product-name{
-    color: rgb(0,113,133);
-    margin-bottom: 5px;
-}
-.product-name:hover{
-    color: rgb(204,102,0);
-    cursor: pointer;
-    text-decoration: underline;
-}
-.product-seller{
-    font-size: small;
-    margin-bottom: 4px;
-}
-.reviews{
-    display: flex;
-}
-.num-reviews{
-    display: flex;
-    flex-direction: column;
-    align-items: flex-end;
-    font-size: 11px;
-    color: rgb(0,113,133);
-    margin: 4px;
-}
-.num-reviews:hover{
-    cursor: pointer;
-    color: rgb(177,39,4);}
-.review-stars{
-    display: flex;
+.product-img:hover {
+  cursor: pointer;
 }
 
-.operating-system{
-    color: gray;
-    font-size: small;
-    margin-bottom: 4px;
+.product-name {
+  color: rgb(0, 113, 133);
+  margin-bottom: 5px;
 }
-.price{
-    display: flex;
-    margin-bottom: 10px;
+.product-name:hover {
+  color: rgb(204, 102, 0);
+  cursor: pointer;
+  text-decoration: underline;
 }
-.price:hover{
-    cursor: pointer;
+.product-seller {
+  font-size: small;
+  margin-bottom: 4px;
+}
+.reviews {
+  display: flex;
+}
+.num-reviews {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  font-size: 11px;
+  color: rgb(0, 113, 133);
+  margin: 4px;
+}
+.num-reviews:hover {
+  cursor: pointer;
+  color: rgb(177, 39, 4);
+}
+.review-stars {
+  display: flex;
 }
 
-.dollar{
-    font-size: 10px;
-    display:flex; 
+.operating-system {
+  color: gray;
+  font-size: small;
+  margin-bottom: 4px;
 }
-.amount{
-    font-weight: 500;
+.price {
+  display: flex;
+  margin-bottom: 10px;
 }
-.is-prime-delivery{
-    font-weight: 300;
-    font-size: 13px;
+.price:hover {
+  cursor: pointer;
+}
+
+.dollar {
+  font-size: 10px;
+  display: flex;
+}
+.amount {
+  font-weight: 500;
+}
+.is-prime-delivery {
+  font-weight: 300;
+  font-size: 13px;
 }
