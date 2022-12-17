@@ -25,7 +25,6 @@ function App() {
     fetch('https://fec-amazon-back-end.onrender.com/Amazon/reviews')
       .then((response) => response.json())
       .then((data) => {
-        // console.log(data)
         setReviews(data);
       })
       .catch((err) => console.error(err.stack));
@@ -34,20 +33,16 @@ function App() {
   return (
     <div className={styles.App}>
       <Navbar />
-
       <div className={styles.main}>
+        {!reviewMode && <CarouselOne />}
         <div className={styles.centralCollumn}>
           {reviewMode ? (
             <CreateReview setReviews={setReviews} setReviewMode={setReviewMode} />
           ) : (
             <>
-              <CarouselOne />
-
               <Preview />
               <RecsSection />
-
               <AmazonQA />
-
               <ReviewsComponent reviews={reviews} setReviewMode={setReviewMode} />
             </>
           )}
