@@ -49,14 +49,25 @@ app.post('/amazon_qa', (req, res) => {
   );
 });
 
+// app.get('/amazon_qa', (req, res) => {
+//   pool.query('SELECT * FROM amazon_qa', (error, result) => {
+//     if (error) {
+//       res.status(500).send(error);
+//     } else {
+//       res.send(result.rows);
+//     }
+//   });
+// });
+
 app.get('/amazon_qa', (req, res) => {
-  pool.query('SELECT * FROM amazon_qa', (error, result) => {
-    if (error) {
-      res.status(500).send(error);
-    } else {
+  pool
+    .query('SELECT * FROM amazon_qa')
+    .then((result) => {
       res.send(result.rows);
-    }
-  });
+    })
+    .catch((err) => {
+      res.status(400).send('Failed to GET questions');
+    });
 });
 
 /* ========== Recommendation Routes ========== */

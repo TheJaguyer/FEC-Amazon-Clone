@@ -18,7 +18,6 @@ function AmazonQA() {
       });
   }, []);
 
-  // if (qaList) {
   const qaListToShow = showAll ? qaList : qaList.slice(0, 1);
 
   return (
@@ -32,8 +31,8 @@ function AmazonQA() {
         </span>
       </div>
       <h2 className="qa__header">Customer Questions & Answers</h2>
-      {qaListToShow.map((item) => (
-        <div key={item.product_id} className="qa__item">
+      {qaListToShow.map((item, index) => (
+        <div key={item.product_id + index} className="qa__item">
           <h5 className="qa__item__question">Question: {item.question}</h5>
           <p className="qa__item__answer">Answer: {item.answer}</p>
         </div>
@@ -43,9 +42,6 @@ function AmazonQA() {
       </button>
     </div>
   );
-  // } else {
-  //   return <div className="qa"></div>;
-  // }
 }
 
 export default AmazonQA;
