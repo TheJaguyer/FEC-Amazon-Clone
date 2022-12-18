@@ -1,0 +1,45 @@
+.container {
+    display: flex;
+    background-color:#232f3e;
+    color: #ffffff;
+    justify-content: center;
+
+}
+.back-to-top {
+    padding: 5px;
+    justify-content: center;
+    width: inherit;
+    display: inherit;
+    font-size: 13px;
+    background-color:#37475A;
+}
+a{
+    color: white;
+    display: flex; 
+    font-size: 12px;
+}
+.col-space-between {
+    width: 100px;
+}
+a:hover {
+color: white;
+}
+h5 {
+    font-weight: 700;
+}
+.col{
+    flex-wrap: wrap;
+}
+.back-to-top:hover {
+    background-color: #404e61;
+}
+#amazon-logos{
+    height: 100px;
+    width: 100px;
+}
+.mid-footer {
+    display: inherit;
+}
+.buttons {
+    font-size: 10px;
+}
