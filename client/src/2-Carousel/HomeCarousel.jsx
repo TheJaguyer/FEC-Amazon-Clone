@@ -4,7 +4,7 @@ import Carousel from 'react-bootstrap/Carousel';
 
 function CarouselOne() {
   return (
-    <Carousel fade>
+    <Carousel className='Carousel-div' fade>
       <Carousel.Item>
         <img className="d-block w-100" src="./carousel-images/amazon2.jpg" alt="First slide" />
       </Carousel.Item>
