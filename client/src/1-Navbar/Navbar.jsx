@@ -1,8 +1,7 @@
-import React from 'react';
 import styles from './Navbar.module.css';
-import { HiOutlineSearch, AiOutlineShoppingCart, IoLocationOutline } from 'react-icons/all';
+import { HiOutlineSearch, AiOutlineShoppingCart, IoLocationOutline, AiFillPropertySafety } from 'react-icons/all';
 
-function Navbar() {
+function Navbar(props) {
   return (
     <div>
       <div className={styles.header}>
@@ -28,8 +27,8 @@ function Navbar() {
             <span className={styles.header__optionLineTwo}>& Orders</span>
           </div>
           <div className={styles.header__optionBasket}>
-            <span className={styles.header__basketCount}>0</span>
-            <AiOutlineShoppingCart size="3em" style={{ position: 'absolute' }}></AiOutlineShoppingCart>
+            <span className={styles.header__basketCount}>{props.count}</span>
+            <div className={styles.shoppingCart}></div>
           </div>
         </div>
       </div>

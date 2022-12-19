@@ -20,6 +20,8 @@ function App() {
   const [reviews, setReviews] = useState([review]);
   const [reviewMode, setReviewMode] = useState(false);
 
+  const [basketCount, setBasketCount] = useState(0);
+
   // fetch and post reviews
   useEffect(() => {
     fetch('https://fec-amazon-back-end.onrender.com/Amazon/reviews')
@@ -32,7 +34,7 @@ function App() {
 
   return (
     <div className={styles.App}>
-      <Navbar />
+      <Navbar count={basketCount} />
       <div className={styles.main}>
         {!reviewMode && <CarouselOne />}
         <div className={styles.centralCollumn}>
@@ -40,15 +42,14 @@ function App() {
             <CreateReview setReviews={setReviews} setReviewMode={setReviewMode} />
           ) : (
             <>
-              <section></section>
               <Preview />
-              <section></section>
+              <div className={styles.divider}></div>
               <RecsSection />
-              <section></section>
+              <div className={styles.divider}></div>
               <AmazonQA />
-              <section></section>
+              <div className={styles.divider}></div>
               <ReviewsComponent reviews={reviews} setReviewMode={setReviewMode} />
-              <section></section>
+              <div className={styles.divider}></div>
             </>
           )}
         </div>

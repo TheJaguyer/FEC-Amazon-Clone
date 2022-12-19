@@ -261,16 +261,3 @@
   text-decoration: underline;
   text-decoration-color: #e77600;
 }
-
-/* <div className="language-select-modal">
-<div className="toparrow"></div>
-<div className="main-modal">
-  <div className="choice">English - EN</div>
-  <div className="choice">español - ES</div>
-  <div className="learn-more">Learn More</div>
-  <div className="needless-info">
-    <div className="flag"></div> You are Shopping on Amazon.com
-  </div>
-  <div className="modal-bottom">Change country/region.</div>
-</div>
-</div> */
