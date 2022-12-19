@@ -8,13 +8,16 @@
 .main {
   display: flex;
   flex-flow: column nowrap;
-  align-items: center;
 }
 
 .centralCollumn {
   display: block;
+  align-self: center;
   max-width: 1500px;
   min-width: 1000px;
+
+  width: 100vw;
+  padding: 10px;
 }
 
 .divider {
