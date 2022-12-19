@@ -126,11 +126,12 @@ app.post('/recs', (req, res) => {
 
 app.post('/reviews', (req, res) => {
   pool
-    .query(`INSERT INTO reviews (title, body, rating, username ) VALUES ($1,$2,$3,$4)`, [
+    .query(`INSERT INTO reviews (title, body, rating, username, datecreated ) VALUES ($1,$2,$3,$4,$5)`, [
       req.body.title,
       req.body.body,
       req.body.rating,
       req.body.username,
+      req.body.datecreated,
     ])
     .then((result) => res.send(result))
     .catch((err) => res.status(404).send(err));
