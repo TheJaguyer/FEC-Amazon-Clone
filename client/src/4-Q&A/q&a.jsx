@@ -32,17 +32,12 @@ function AmazonQA() {
         </span>
       </div>
       <h2 className="qa__header">Customer Questions & Answers</h2>
-      {qaListToShow.map((item, index) => (
-        <div key={item.product_id + index} className="qa__item">
-          <h5 className="qa__item__question">Question: {item.question}</h5>
-          <p className="qa__item__answer">Answer: {item.answer}</p>
-        </div>
+      {qaListToShow.map((item) => (
+        <SingleQA key={item.id} {...item} />
       ))}
       <button type="button" onClick={() => setShowAll(!showAll)} className="qa__show-all-button">
-        {showAll ? 'Show less' : 'Show more'}
+        {showAll ? 'See less' : 'See more answered questions'}
       </button>
-      \
-      <SingleQA />
     </div>
   );
 }
