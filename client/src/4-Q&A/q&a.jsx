@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { HiOutlineSearch } from 'react-icons/all';
 import './q&a.css';
+import SingleQA from './SingleQA/SingleQA.jsx';
 
 function AmazonQA() {
   const [qaList, setQAList] = useState([]);
@@ -40,6 +41,8 @@ function AmazonQA() {
       <button type="button" onClick={() => setShowAll(!showAll)} className="qa__show-all-button">
         {showAll ? 'Show less' : 'Show more'}
       </button>
+      \
+      <SingleQA />
     </div>
   );
 }

@@ -125,19 +125,15 @@ app.post('/recs', (req, res) => {
 /* ========== Product Review Routes ========== */
 
 app.post('/reviews', (req, res) => {
-  pool.query(`INSERT INTO reviews (title, body, rating, username ) VALUES ($1,$2,$3,$4)`, [
-    req.body.title,
-    req.body.body,
-    req.body.rating,
-    req.body.username,
-  ]),
-    (error, result) => {
-      if (error) {
-        res.status(500).send(error);
-      } else {
-        res.send(result.body);
-      }
-    };
+  pool
+    .query(`INSERT INTO reviews (title, body, rating, username ) VALUES ($1,$2,$3,$4)`, [
+      req.body.title,
+      req.body.body,
+      req.body.rating,
+      req.body.username,
+    ])
+    .then((result) => res.send(result))
+    .catch((err) => res.status(404).send(err));
 });
 
 /* ==================== Listener ==================== */

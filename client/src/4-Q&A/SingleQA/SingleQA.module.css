@@ -1,0 +1,65 @@
+.QA {
+  width: 800px;
+  display: flex;
+  flex-flow: row nowrap;
+}
+
+.voting-section {
+  width: 64px;
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+  gap: 4px;
+}
+
+.up-arrow {
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 10px;
+  border-color: transparent;
+  border-top-width: 0;
+  border-bottom: 14px solid #888;
+}
+
+.down-arrow {
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 10px;
+  border-color: transparent;
+  border-bottom-width: 0;
+  border-top: 14px solid #888;
+}
+
+.vote-count {
+  font-size: 14px;
+}
+
+.votes-word {
+  font-size: 14px;
+}
+
+/* 
+    <div className="QA">
+    <div className="voting-section">
+      <div className="up-arrow"></div>
+      <div className="vote-count">{`11`}</div>
+      <div className="votes-word">votes</div>
+      <div className="down-arrow"></div>
+    </div>
+    <div className="QA-section">
+      <div className="question">
+        <div className="declarative">Question:</div>
+        <div className="question-text">{`question text`}</div>
+      </div>
+      <div className="answer">
+        <div className="declarative">Answer:</div>
+        <div className="answer-text">{`answer text`}</div>
+      </div>
+      <div className="date-section">
+        <div className="declarative"></div>
+        <div className="data-info">{`data info`}</div>
+      </div>
+    </div>
+  </div> */
