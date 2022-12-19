@@ -49,10 +49,10 @@ function App() {
               <section></section>
               <ReviewsComponent reviews={reviews} setReviewMode={setReviewMode} />
               <section></section>
-              <Footer/>
             </>
           )}
         </div>
+        <Footer />
       </div>
     </div>
   );
