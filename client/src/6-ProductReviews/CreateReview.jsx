@@ -29,6 +29,8 @@ const CreateReview = (props) => {
     newReveiw.body = review;
     newReveiw.rating = currentOverallRating;
     newReveiw.username = name;
+    let d = new Date()
+    newReveiw.datecreated = d.toLocaleDateString()
     props.setReviews((prev) => [...prev, newReveiw]);
     props.setReviewMode(false);
 

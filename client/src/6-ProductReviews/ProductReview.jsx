@@ -23,7 +23,7 @@ const ProductReview = (props) => {
           
           <ReactStars {...starSettings} />
         </h3>
-        <div>Reviewed in the United States 🇺🇸 on December 5, 2022</div>
+        <div>Reviewed in the United States 🇺🇸 on {props.datecreated}</div>
         <div id="verifiedReview">Verified Review</div>
 
         <p className="reviewBody">{props.body}</p>
