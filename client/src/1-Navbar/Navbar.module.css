@@ -52,7 +52,7 @@
 .header__basketCount {
   position: 'absolute';
   margin-left: 23px;
-  margin-bottom: 8px;
+  margin-bottom: 14px;
   color: #fcb250;
 }
 .header__nav {
@@ -76,4 +76,13 @@
 }
 .home__container {
   display: block;
+}
+
+.shoppingCart {
+  height: 26px;
+  width: 38px;
+  background-image: url('../footer-images/amazon-image-collection.png');
+  background-position: -10px -340px;
+
+  margin-left: -26px;
 }
