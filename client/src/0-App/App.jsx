@@ -53,7 +53,7 @@ function App() {
             </>
           )}
         </div>
-        <Footer />
+        <Footer/>
       </div>
     </div>
   );
