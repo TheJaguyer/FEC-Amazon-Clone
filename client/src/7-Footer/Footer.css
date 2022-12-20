@@ -1,23 +1,22 @@
 .container {
   width: 100vw;
   max-width: 100%;
-  min-width: 1000px;
   display: flex;
   flex-direction: column;
   background-color: #232f3e;
   color: #ffffff;
+  align-items: center;
   padding: 0;
   margin: 0;
   margin-top: 40px;
   align-self: left;
 }
 .back-to-top {
+  padding: 5px;
   justify-content: center;
   vertical-align: center;
   padding: 16px;
-  width: 100vw;
-  max-width: 100%;
-  min-width: 1000px;
+  width: 100%;
   display: inherit;
   font-size: 13px;
   background-color: #37475a;
@@ -35,7 +34,7 @@
   cursor: pointer;
 }
 .col-space-between {
-  width: 50px;
+  width: 100px;
 }
 .footerSpan:hover {
   color: white;
@@ -58,15 +57,10 @@
 }
 
 .upper-footer {
+  width: 1000px;
   height: 405px;
   margin-top: 30px;
   margin-bottom: 30px;
-  max-width: 100%;
-  min-width: 1000px;
-  display: flex;
-  flex-flow: row nowrap;
-  align-items: center;
-  justify-content: center;
 }
 .mid-footer {
   height: 100px;
@@ -74,8 +68,6 @@
   flex-flow: row nowrap;
   justify-content: center;
   align-items: center;
-  max-width: 100%;
-  min-width: 1000px;
 }
 .buttons {
   font-size: 10px;
@@ -307,26 +299,26 @@ text-decoration: none;
   flex-flow: row nowrap;
 }
 .copy_a{
-font-size: 12px;
-color: white;
-text-decoration: none;
-}
-.copy_b{
   font-size: 12px;
-  display: flex;
-  justify-content: center;
-}
-.copyright{
-  width: 100%;
-  display: flex;
-  flex-flow: row;
-  justify-content: center;
-  padding-top: 30px;
-}
-.copy_col{
-  width: 20px;
-} 
-.copy_a:hover{
   color: white;
-  text-decoration: underline;
-}
+  text-decoration: none;
+  }
+  .copy_b{
+    font-size: 12px;
+    display: flex;
+    justify-content: center;
+  }
+  .copyright{
+    width: 100%;
+    display: flex;
+    flex-flow: row;
+    justify-content: center;
+    padding-top: 30px;
+  }
+  .copy_col{
+    width: 20px;
+  } 
+  .copy_a:hover{
+    color: white;
+    text-decoration: underline;
+  }
