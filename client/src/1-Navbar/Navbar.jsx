@@ -1,5 +1,6 @@
 import styles from './Navbar.module.css';
 import { HiOutlineSearch, AiOutlineShoppingCart, IoLocationOutline, AiFillPropertySafety } from 'react-icons/all';
+import NavAnchor from './Navbar-Anchor';
 
 function Navbar(props) {
   return (
@@ -32,6 +33,7 @@ function Navbar(props) {
           </div>
         </div>
       </div>
+      <NavAnchor/>
     </div>
   );
 }
