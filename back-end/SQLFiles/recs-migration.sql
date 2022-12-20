@@ -12,6 +12,6 @@ CREATE TABLE recommendations(
   is_limited_time_deal boolean,
   is_prime_delivery boolean,
   limited_time_end date,
-  is_offers int,
+  is_offers decimal,
   is_climate_friendly boolean
 )
