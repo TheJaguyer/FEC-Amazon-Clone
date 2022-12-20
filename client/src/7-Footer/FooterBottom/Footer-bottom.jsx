@@ -471,6 +471,14 @@ function FooterBottom () {
                     </a>
                 </td>
                 </tr>
+                <div className="copyright">
+                    <a className="copy_a">Conditions of Use</a>
+                    <col className="copy_col"></col>
+                    <a className="copy_a">Privacy Notice</a>
+                    <col className="copy_col"></col>
+                    <a className="copy_a">Interest-Based Ads</a>
+                </div>
+                <span className="copy_b">© 2022-2022, Fantastic 4, Inc. or its affiliates</span>
             </div>
     )
 }
