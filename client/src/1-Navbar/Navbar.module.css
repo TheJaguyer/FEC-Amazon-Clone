@@ -86,3 +86,19 @@
 
   margin-left: -26px;
 }
+
+
+
+.countdown-gif {
+  position: relative;
+  height: 60px !important;
+  width: 350px !important;
+}
+#countdown{
+position: absolute !important;
+top: 15px !important;
+left: 220px !important;
+}
+.countdown-gif img {
+  position: absolute !important;
+}
