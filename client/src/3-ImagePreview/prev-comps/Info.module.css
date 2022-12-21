@@ -50,3 +50,43 @@
 red 177, 39, 4
 
 orange: 204, 102, 0 */
+.boldFont{
+  color: #0f1111;
+  display: inline;
+  font-size: 14px;
+  font-weight: bold;
+  line-height: 20px;
+}
+
+.responseData{
+  color: #0f1111;
+  font-size: 14px;
+  line-height: 20px;
+  
+}
+.papaDiv{
+  display: flex;
+  flex-flow: row nowrap;
+  gap: 20px;
+}
+.spacer{
+  height: 20px;
+  border-top: 1px solid rgb(211, 204, 204);
+  margin-top: 20px;
+}
+.line{
+  border-top: 1px solid rgb(211, 204, 204);
+  height: 2px;
+  margin-bottom: 12px;
+}
+.wideOpenSpaces{
+  height: 5px
+}
+.ul li{
+  font-size: 14px;
+}
+.aboutHeader{
+  font-weight: 700;
+  line-height: 24px;
+  padding: 0px 0px 4px;
+}
