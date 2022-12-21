@@ -5,8 +5,10 @@ import Review from '../0-App/Review.jsx';
 export default function Router() {
   return (
     <Routes>
-      <Route index element={<App />} />
-      <Route path="/newReview" element={<Review />} />
+      <Route path="">
+        <Route index element={<App />} />
+        <Route path="/newReview" element={<Review />} />
+      </Route>
     </Routes>
   );
 }
