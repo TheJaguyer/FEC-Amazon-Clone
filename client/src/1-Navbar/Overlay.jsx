@@ -4,7 +4,7 @@ import Offcanvas from 'react-bootstrap/Offcanvas';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { RxHamburgerMenu, BsPersonCircle } from 'react-icons/all';
 
-function Overlay() {
+function Overlay(props) {
   const [show, setShow] = useState(false);
 
   const handleClose = () => setShow(false);
@@ -37,9 +37,9 @@ function Overlay() {
           <h5 className="h5-a" style={{ color: 'black', fontSize: '18px', fontWeight: '300' }}>
             Trending
           </h5>
-          <p className="a">Best Sellers</p>
-          <p className="a">New Releases</p>
-          <p className="a">Movies & Shakers</p>
+          {props.excess.map((item) => (
+            <p className="a">{item}</p>
+          ))}
           <ul className="spaceTime" style={{ height: '5px', border: '7px', borderTopColor: 'black' }}></ul>
         </Offcanvas.Body>
       </Offcanvas>

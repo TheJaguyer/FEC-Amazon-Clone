@@ -3,6 +3,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import CountDown from './CountDown.jsx';
 import styles from './Navbar.module.css';
 import { useEffect, useState } from 'react';
+
 function NavAnchor() {
   const [width, setWidth] = useState();
 
@@ -22,8 +23,6 @@ function NavAnchor() {
     'Fashion',
   ];
 
-  window.addEventListener('resize', handleResize);
-
   function handleResize() {
     let box = document.getElementById('itemsList').getBoundingClientRect();
     setWidth(box.width);
@@ -31,6 +30,8 @@ function NavAnchor() {
 
   useEffect(() => {
     handleResize();
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
   }, []);
 
   return (
@@ -48,14 +49,13 @@ function NavAnchor() {
         whiteSpace: 'nowrap',
       }}
     >
-      <Overlay />
+      <Overlay excess={anchorItems.slice(Math.floor(width / 150) + 1)} />
       <div className={styles['items-list']} id="itemsList">
-        {anchorItems.slice(0, Math.floor(width / 150)).map((item) => (
+        {anchorItems.slice(0, Math.floor(width / 150) + 1).map((item) => (
           <span className={styles['anchor-item']}>{item}</span>
         ))}
       </div>
 
-      {/* I will find a way to make excess items disappear like how they do on the real site */}
       <div className="countdown-gif" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr' }}>
         <img
           src="/Navbar-images/countdownClock.gif"
@@ -67,6 +67,3 @@ function NavAnchor() {
   );
 }
 export default NavAnchor;
-
-// 1970 is when items start getting cut
-// each item is 150px wide
