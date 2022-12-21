@@ -43,7 +43,7 @@ export default function Info() {
       </div>
       <div className={styles.spacer}></div>
       <div className={styles.about}>
-        <h7 className={styles.aboutHeader}> About this item</h7>
+        <div className={styles.aboutHeader}> About this item</div>
         <ul className={styles.ul}>
           <li>1 x Microsoft Xbox One Elite Series 2 Controller | 1 x Microfiber Cloth</li>
           <li>
