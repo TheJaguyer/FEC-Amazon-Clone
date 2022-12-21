@@ -2,6 +2,7 @@ import React from 'react';
 import './recs.css';
 import { useEffect, useState } from 'react';
 import axios from 'axios';
+import { AiFillPropertySafety } from 'react-icons/ai';
 
 const RecsItem = () => {
   const [imgLink, setImgLink] = useState('');
@@ -17,6 +18,18 @@ const RecsItem = () => {
   const [isOffer, setIsOffer] = useState(0);
   const [isClimateFriendly, setIsClimateFriendly] = useState(false);
   const [itemData, setItemData] = useState([]);
+  const [width, setWidth] = useState(0);
+
+  function handleResize() {
+    let box = document.getElementById('recsitems').getBoundingClientRect();
+    setWidth(box.width);
+  }
+
+  useEffect(() => {
+    handleResize();
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
 
   useEffect(() => {
     axios
@@ -29,8 +42,8 @@ const RecsItem = () => {
   }, []);
 
   return (
-    <div className="items">
-      {itemData.map((item) => {
+    <div className="items" id="recsitems">
+      {itemData.slice(0, width <= 1008 ? 5 : 6).map((item) => {
         return (
           <div className="main-area" key={item.id}>
             <div className="product-img">
