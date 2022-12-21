@@ -114,3 +114,10 @@
   font-size: 22px;
   font-weight: bold;
 }
+
+.items-list {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-evenly;
+  width: 100%;
+}

@@ -1,8 +1,38 @@
 import Overlay from './Overlay';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import CountDown from './CountDown.jsx';
-import './Navbar.module.css';
+import styles from './Navbar.module.css';
+import { useEffect, useState } from 'react';
 function NavAnchor() {
+  const [width, setWidth] = useState();
+
+  const anchorItems = [
+    'Very Merry Deals',
+    ' Holiday Gift Guide',
+    'Best Sellers',
+    ' Amazon Basics',
+    'Customer Service',
+    'Prime',
+    'New Releases',
+    'Books',
+    'Music',
+    'Registry',
+    'Gift Cards',
+    'Amazon Home',
+    'Fashion',
+  ];
+
+  window.addEventListener('resize', handleResize);
+
+  function handleResize() {
+    let box = document.getElementById('itemsList').getBoundingClientRect();
+    setWidth(box.width);
+  }
+
+  useEffect(() => {
+    handleResize();
+  }, []);
+
   return (
     <div
       style={{
@@ -19,26 +49,24 @@ function NavAnchor() {
       }}
     >
       <Overlay />
-      <span>Very Merry Deals</span>
-      <span>Holiday Gift Guide</span>
-      <span>Best Sellers</span>
-      <span>Amazon Basics</span>
-      <span>Customer Service</span>
-      <span>Prime</span>
-      <span>New Releases</span>
-      {/* <span>Books</span>
-      <span>Music</span>
-      <span>Registry</span>
-      <span>Gift Cards</span>
-      <span>Amazon Home</span>
-      <span>Fashion</span> */}
+      <div className={styles['items-list']} id="itemsList">
+        {anchorItems.slice(0, Math.floor(width / 150)).map((item) => (
+          <span className={styles['anchor-item']}>{item}</span>
+        ))}
+      </div>
 
       {/* I will find a way to make excess items disappear like how they do on the real site */}
       <div className="countdown-gif" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr' }}>
-        <img src="/Navbar-images/countdownClock.gif" style={{ gridColumn: '1 / span 2', gridRow: '1 / span 2' }} />
+        <img
+          src="/Navbar-images/countdownClock.gif"
+          style={{ gridColumn: '1 / span 2', gridRow: '1 / span 2', height: '40px', width: '360px' }}
+        />
         <CountDown />
       </div>
     </div>
   );
 }
 export default NavAnchor;
+
+// 1970 is when items start getting cut
+// each item is 150px wide
