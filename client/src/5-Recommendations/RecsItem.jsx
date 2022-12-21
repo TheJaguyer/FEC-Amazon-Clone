@@ -1,41 +1,40 @@
-import React from 'react';
-import './recs.css';
-import { useEffect, useState } from 'react';
-import axios from 'axios';
-import { AiFillPropertySafety } from 'react-icons/ai';
+import React from "react";
+import "./recs.css";
+import { useEffect, useState } from "react";
+import axios from "axios";
+import { AiFillPropertySafety } from "react-icons/ai";
 
 const RecsItem = () => {
-  const [imgLink, setImgLink] = useState('');
-  const [productName, setProductName] = useState('');
-  const [productSeller, setProductSeller] = useState('');
+  const [imgLink, setImgLink] = useState("");
+  const [productName, setProductName] = useState("");
+  const [productSeller, setProductSeller] = useState("");
   const [numOfReviews, setNumOfReviews] = useState(0);
-  const [operatingSystem, setOperatingSystem] = useState('');
+  const [operatingSystem, setOperatingSystem] = useState("");
   const [price, setPrice] = useState(0);
   const [isBestSeller, setIsBestSeller] = useState(false);
   const [isLimitedTimeDeal, setIsLimitedTimeDeal] = useState(false);
   const [isPrimeDelivery, setIsPrimeDelivery] = useState(false);
-  const [limitedTimeEnd, setLimitedTimeEnd] = useState('');
+  const [limitedTimeEnd, setLimitedTimeEnd] = useState("");
   const [isOffer, setIsOffer] = useState(0);
   const [isClimateFriendly, setIsClimateFriendly] = useState(false);
   const [itemData, setItemData] = useState([]);
   const [width, setWidth] = useState(0);
 
   function handleResize() {
-    let box = document.getElementById('recsitems').getBoundingClientRect();
+    let box = document.getElementById("recsitems").getBoundingClientRect();
     setWidth(box.width);
   }
 
   useEffect(() => {
     handleResize();
-    window.addEventListener('resize', handleResize);
-    return () => window.removeEventListener('resize', handleResize);
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
   }, []);
 
   useEffect(() => {
     axios
-      .get('https://fec-amazon-back-end.onrender.com/recs')
+      .get("https://fec-amazon-back-end.onrender.com/recs")
       .then((res) => {
-        //console.log(res.data)
         setItemData(res.data);
       })
       .catch((err) => console.log(err));
@@ -50,7 +49,9 @@ const RecsItem = () => {
               <img className="product-img" src={item.product_img}></img>
             </div>
             <div className="product-name">
-              {item.product_name.length > 55 ? item.product_name.substring(0, 55) + '...' : item.product_name}
+              {item.product_name.length > 55
+                ? item.product_name.substring(0, 55) + "..."
+                : item.product_name}
             </div>
             <div className="product-seller">{item.product_seller}</div>
             <div className="reviews">
@@ -65,7 +66,9 @@ const RecsItem = () => {
               <span className="amount">{item.price}</span>
             </div>
             <div className="is-prime-delivery">
-              {item.is_prime_delivery == true ? 'Prime FREE Delivery' : '5-10 Days Delivery'}
+              {item.is_prime_delivery == true
+                ? "Prime FREE Delivery"
+                : "5-10 Days Delivery"}
             </div>
           </div>
         );
