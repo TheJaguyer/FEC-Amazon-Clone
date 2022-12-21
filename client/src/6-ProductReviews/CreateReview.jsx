@@ -26,16 +26,16 @@ const CreateReview = (props) => {
   };
 
   const handleSubmit = () => {
-    let newReveiw = {};
-    newReveiw.title = headline;
-    newReveiw.body = review;
-    newReveiw.rating = currentOverallRating;
-    newReveiw.username = name;
+    let newReview = {};
+    newReview.title = headline;
+    newReview.body = review;
+    newReview.rating = currentOverallRating;
+    newReview.username = name;
     let d = new Date();
-    newReveiw.datecreated = d.toLocaleDateString();
-    props.setReviews((prev) => [...prev, newReveiw]);
+    newReview.datecreated = d.toLocaleDateString();
+    props.setReviews((prev) => [...prev, newReview]);
 
-    fetch('https://fec-amazon-back-end.onrender.com/reviews', { method: 'post', body: JSON.stringify(props.reviews) })
+    fetch('https://fec-amazon-back-end.onrender.com/reviews', { method: 'POST', body: JSON.stringify(newReview) })
       .then((response) => response.json())
       .then((data) => {
         console.log(data);
@@ -79,7 +79,7 @@ const CreateReview = (props) => {
         <br />
         <span>Don't worry, you can always change this on your profile</span>
       </div>
-      <Link to="/" className="submitReview button" onClick={handleSubmit}>
+      <Link to="/" className="submitReview button">
         Submit
       </Link>
     </div>
