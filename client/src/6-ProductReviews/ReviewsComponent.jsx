@@ -1,20 +1,16 @@
 import ProductReview from './ProductReview';
 import './ProductReview.css';
+import { Link } from 'react-router-dom';
 
 function ReviewsComponent(props) {
-  function handleNewReview() {
-    props.setReviewMode(true);
-    document.body.scrollTop = 0; // For safari... who even uses safari?
-    document.documentElement.scrollTop = 0; // For every other normal human browser.
-  }
   return (
     <div className="reveiwSection">
       <div className="left-section">
         <div className="section-title">Review this product</div>
         <div className="subtitle">Share your thoughts with other customers</div>
-        <div className="button" onClick={handleNewReview}>
+        <Link to="/newReview" className="button">
           Write a cusomer review
-        </div>
+        </Link>
       </div>
       <div className="right-section">
         <div className="section-title">Top Reviews from the United States</div>

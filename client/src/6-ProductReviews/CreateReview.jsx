@@ -1,12 +1,19 @@
 import { useState } from 'react';
 import StarReview from './StarReview';
 import './ProductReview.css';
+import { Link } from 'react-router-dom';
+import { useEffect } from 'react';
 
 const CreateReview = (props) => {
   const [currentOverallRating, setCurrentOverallRating] = useState(5);
   const [headline, setHeadline] = useState('');
   const [review, setReview] = useState('');
   const [name, setName] = useState('');
+
+  useEffect(() => {
+    document.body.scrollTop = 0;
+    document.documentElement.scrollTop = 0;
+  }, []);
 
   const handleHeadlineChange = (event) => {
     setHeadline(event.target.value);
@@ -44,9 +51,9 @@ const CreateReview = (props) => {
         <h4>Overall Rating:</h4>
         <StarReview currentRating={currentOverallRating} setCurrentRating={setCurrentOverallRating} />
         <div className="spacer"></div>
-        <button className="back-button button" onClick={() => props.setReviewMode(false)}>
+        <Link to="/" className="back-button button">
           Back
-        </button>
+        </Link>
       </div>
       <div>
         <div className="deviderLine"></div>

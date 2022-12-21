@@ -168,9 +168,11 @@
   cursor: pointer;
   width: max-content;
   padding-inline: 10px;
+  text-decoration: none;
 }
 
 .button:hover {
+  color: black;
   background-color: #f2f2f2;
 }
 
