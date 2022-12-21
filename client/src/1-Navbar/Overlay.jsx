@@ -37,8 +37,10 @@ function Overlay(props) {
           <h5 className="h5-a" style={{ color: 'black', fontSize: '18px', fontWeight: '300' }}>
             Trending
           </h5>
-          {props.excess.map((item) => (
-            <p className="a">{item}</p>
+          {props.excess.map((item, index) => (
+            <p key={index} className="a">
+              {item}
+            </p>
           ))}
           <ul className="spaceTime" style={{ height: '5px', border: '7px', borderTopColor: 'black' }}></ul>
         </Offcanvas.Body>

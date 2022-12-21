@@ -3,15 +3,10 @@ import StarReview from './StarReview';
 import './ProductReview.css';
 
 const CreateReview = (props) => {
-
-  const [currentOverallRating, setCurrentOverallRating] = useState(4);
-  const [currentValueRating, setCurrentValueRating] = useState(4);
-  const [currentBatteryRating, setCurrentBatteryRating] = useState(4);
-  const [currentComfortRating, setCurrentComfortRating] = useState(4);
+  const [currentOverallRating, setCurrentOverallRating] = useState(5);
   const [headline, setHeadline] = useState('');
   const [review, setReview] = useState('');
   const [name, setName] = useState('');
-
 
   const handleHeadlineChange = (event) => {
     setHeadline(event.target.value);
@@ -29,47 +24,34 @@ const CreateReview = (props) => {
     newReveiw.body = review;
     newReveiw.rating = currentOverallRating;
     newReveiw.username = name;
-    let d = new Date()
-    newReveiw.datecreated = d.toLocaleDateString()
+    let d = new Date();
+    newReveiw.datecreated = d.toLocaleDateString();
     props.setReviews((prev) => [...prev, newReveiw]);
     props.setReviewMode(false);
 
-    fetch('https://fec-amazon-back-end.onrender.com/reviews', {method: 'post', body: JSON.stringify(props.reviews)})
-    .then((response)=>response.json())
-    .then((data)=>{
-      console.log(data)
-      
-    }
-    )
-    .catch((err)=> console.error(err.stack))
+    fetch('https://fec-amazon-back-end.onrender.com/reviews', { method: 'post', body: JSON.stringify(props.reviews) })
+      .then((response) => response.json())
+      .then((data) => {
+        console.log(data);
+      })
+      .catch((err) => console.error(err.stack));
   };
 
   return (
-    <div>
-      <button onClick={() => props.setReviewMode(false)}> X</button>
+    <div className="create-review">
       <h2>Create Review</h2>
-      <h3>Overall Rating</h3>
-      <StarReview currentRating={currentOverallRating} setCurrentRating={setCurrentOverallRating} />
-
+      <div className="rating-line">
+        <h4>Overall Rating:</h4>
+        <StarReview currentRating={currentOverallRating} setCurrentRating={setCurrentOverallRating} />
+        <div className="spacer"></div>
+        <button className="back-button button" onClick={() => props.setReviewMode(false)}>
+          Back
+        </button>
+      </div>
       <div>
-        {' '}
-        <h2>Rate Features</h2>
-        <br />
-        <div className="deviderLine"></div>
-        <span>Value for Money</span>
-        <StarReview currentRating={currentValueRating} setCurrentRating={setCurrentValueRating} />
-        <br />
-        <div className="deviderLine"></div>
-        <span>Battery Life</span>
-        <StarReview currentRating={currentBatteryRating} setCurrentRating={setCurrentBatteryRating} />
-        <br />
-        <div className="deviderLine"></div>
-        <span>Comfort</span>
-        <StarReview currentRating={currentComfortRating} setCurrentRating={setCurrentComfortRating} />
-        <br />
         <div className="deviderLine"></div>
       </div>
-      <h2>Add a Headline</h2>
+      <h4>Review Title</h4>
       <input
         type="input"
         onChange={(e) => handleHeadlineChange(e)}
@@ -84,12 +66,12 @@ const CreateReview = (props) => {
         </form> */}
       </div>
       <div>
-        <h2>Add Written Review</h2>
+        <h4>Add Written Review</h4>
 
         <textarea onChange={(e) => handleReviewChange(e)} style={{ height: '150px', width: '650px' }}></textarea>
       </div>
       <div>
-        <h2>Choose your public name</h2>
+        <h4>Choose your public name</h4>
         <span>This is how you'll appear to other customers</span>
         <br />
 
@@ -97,7 +79,9 @@ const CreateReview = (props) => {
         <br />
         <span>Don't worry, you can always change this on your profile</span>
       </div>
-      <button className='submitReview' style={{marginLeft: '550px'}} onClick={handleSubmit}>Submit</button>
+      <button className="submitReview button" onClick={handleSubmit}>
+        Submit
+      </button>
     </div>
   );
 };

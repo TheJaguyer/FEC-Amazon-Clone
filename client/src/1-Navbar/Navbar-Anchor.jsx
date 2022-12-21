@@ -47,12 +47,15 @@ function NavAnchor() {
         fontSize: '14px',
         lineHeight: '12px',
         whiteSpace: 'nowrap',
+        height: '40px',
       }}
     >
       <Overlay excess={anchorItems.slice(Math.floor(width / 150) + 1)} />
       <div className={styles['items-list']} id="itemsList">
-        {anchorItems.slice(0, Math.floor(width / 150) + 1).map((item) => (
-          <span className={styles['anchor-item']}>{item}</span>
+        {anchorItems.slice(0, Math.floor(width / 150) + 1).map((item, index) => (
+          <span key={index} className={styles['anchor-item']}>
+            {item}
+          </span>
         ))}
       </div>
 
