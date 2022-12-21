@@ -3,13 +3,9 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import CountDown from './CountDown.jsx';
 import styles from './Navbar.module.css';
 import { useEffect, useState } from 'react';
-import PrimeModal from './PrimeModal.jsx';
 
 function NavAnchor() {
   const [width, setWidth] = useState();
-  const [showPrime, setShowPrime] = useState(false);
-  const [top, setTop] = useState(0);
-  const [left, setLeft] = useState(0);
 
   const anchorItems = [
     'Very Merry Deals',
@@ -38,13 +34,6 @@ function NavAnchor() {
     return () => window.removeEventListener('resize', handleResize);
   }, []);
 
-  function handlePrimeHover(e) {
-    let box = e.target.getBoundingClientRect();
-    setTop(box.bottom + window.pageYOffset);
-    setLeft(box.right - 128);
-    setShowPrime(true);
-  }
-
   return (
     <div
       style={{
@@ -63,27 +52,11 @@ function NavAnchor() {
     >
       <Overlay excess={anchorItems.slice(Math.floor(width / 150) + 1)} />
       <div className={styles['items-list']} id="itemsList">
-        {anchorItems.slice(0, Math.floor(width / 150) + 1).map((item, index) => {
-          if (item === 'Prime') {
-            return (
-              <span
-                key={index}
-                className={styles['prime-item']}
-                onMouseEnter={(e) => handlePrimeHover(e)}
-                onMouseLeave={() => setShowPrime(false)}
-              >
-                {item} <div className={styles.iconarrow}></div>
-                {showPrime && <PrimeModal top={top} left={left + 13} />}
-              </span>
-            );
-          } else {
-            return (
-              <span key={index} className={styles['anchor-item']}>
-                {item}
-              </span>
-            );
-          }
-        })}
+        {anchorItems.slice(0, Math.floor(width / 150) + 1).map((item, index) => (
+          <span key={index} className={styles['anchor-item']}>
+            {item}
+          </span>
+        ))}
       </div>
 
       <div className="countdown-gif" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr' }}>
