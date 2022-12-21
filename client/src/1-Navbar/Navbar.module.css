@@ -121,3 +121,80 @@
   justify-content: space-evenly;
   width: 100%;
 }
+
+.iconarrow {
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 5px;
+  border-color: transparent;
+  border-bottom-width: 0;
+  border-top: 8px solid #888;
+  cursor: pointer;
+}
+
+.prime-item {
+  display: flex;
+  flex-flow: row nowrap;
+  gap: 4px;
+  align-items: center;
+  padding: 5px;
+  border: 1px solid rgba(255, 255, 255, 0);
+  cursor: pointer;
+}
+
+.prime-item:hover {
+  border-style: solid;
+  border-color: white;
+  border-width: 1px;
+}
+
+.anchor-item {
+  padding: 5px;
+  border: 1px solid rgba(255, 255, 255, 0);
+  cursor: pointer;
+}
+
+.anchor-item:hover {
+  border-style: solid;
+  border-color: white;
+  border-width: 1px;
+}
+
+.arrow {
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 9px;
+  border-color: transparent;
+  border-top-width: 0;
+  border-bottom: 9px solid #ccc;
+  position: absolute;
+  top: -9px;
+  left: 95px;
+}
+
+.arrowInner {
+  border-style: solid;
+  border-width: 9px;
+  border-color: transparent;
+  border-top-width: 0;
+  border-bottom: 9px solid #fff;
+  width: 0;
+  height: 0;
+  position: absolute;
+  top: 1px;
+  left: -9px;
+}
+
+.prime-img {
+  background-image: url('../Navbar-images/prime.png');
+  width: 220px;
+  height: 277px;
+  background-size: cover;
+}
+
+.prime-modal {
+  position: absolute;
+  z-index: 5;
+}
