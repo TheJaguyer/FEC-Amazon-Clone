@@ -12,18 +12,16 @@ const ProductReview = (props) => {
     activeColor: 'yellow',
   };
 
- var [count, setCount] = useState(0)
+  var [count, setCount] = useState(0);
   return (
     <div className="product-review">
       <div>
-        
         <span>{props.username} </span>
         <h2>{props.title}</h2>
         <h3>
-          
           <ReactStars {...starSettings} />
         </h3>
-        <div>Reviewed in the United States 🇺🇸 on {props.datecreated}</div>
+        <div>Reviewed in the United States on {props.datecreated}</div>
         <div id="verifiedReview">Verified Review</div>
 
         <p className="reviewBody">{props.body}</p>

@@ -1,26 +1,35 @@
 import styles from './SingleQA.module.css';
+import { useState } from 'react';
 
 export default function SingleQA(props) {
+  const [count, setCount] = useState(props.rating);
+
+  function convertDate(raw) {
+    let date = new Date(raw);
+    let string = date.toLocaleDateString();
+    return string;
+  }
+
   return (
     <div className={styles['QA']}>
       <div className={styles['voting-section']}>
-        <div className={styles['up-arrow']}></div>
-        <div className={styles['vote-count']}>{`11`}</div>
+        <div onClick={() => setCount((prev) => prev + 1)} className={styles['up-arrow']}></div>
+        <div className={styles['vote-count']}>{count}</div>
         <div className={styles['votes-word']}>votes</div>
-        <div className={styles['down-arrow']}></div>
+        <div onClick={() => setCount((prev) => prev - 1)} className={styles['down-arrow']}></div>
       </div>
       <div className={styles['QA-section']}>
-        <div className={styles['question']}>
+        <div className={styles['head']}>
           <div className={styles['declarative']}>Question:</div>
-          <div className={styles['question-text']}>{`question text`}</div>
+          <div className={styles['qtext']}>{props.question}</div>
         </div>
-        <div className={styles['answer']}>
+        <div className={styles['head']}>
           <div className={styles['declarative']}>Answer:</div>
-          <div className={styles['answer-text']}>{`answer text`}</div>
+          <div className={styles['atext']}>{props.answer}</div>
         </div>
-        <div className={styles['date-section']}>
+        <div className={styles['head']}>
           <div className={styles['declarative']}></div>
-          <div className={styles['data-info']}>{`data info`}</div>
+          <div className={styles['info']}>Question answered on {convertDate(props.date_posted)}</div>
         </div>
       </div>
     </div>

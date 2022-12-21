@@ -86,3 +86,38 @@
 
   margin-left: -26px;
 }
+
+.countdown-gif {
+  position: relative;
+  height: 60px !important;
+  width: 350px !important;
+}
+.countdown {
+  display: flex;
+  grid-column: 2;
+  grid-row: 1;
+  height: 40px;
+  align-items: center;
+  justify-content: center;
+}
+
+.time-block {
+  background-color: white;
+  padding: 1px;
+  border-radius: 3px;
+  font-size: 22px;
+  color: black;
+}
+
+.colon {
+  color: white;
+  font-size: 22px;
+  font-weight: bold;
+}
+
+.items-list {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-evenly;
+  width: 100%;
+}

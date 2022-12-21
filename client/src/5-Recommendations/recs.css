@@ -1,45 +1,42 @@
 .recs-section-big {
-  min-width: 1000px;
-  max-width: 1500px;
-  margin: 10px;
+  margin-inline: 10px;
+  max-width: 100%;
+  /* min-width: 1000px;
+  max-width: 1500px; */
   display: flex;
 }
 
 .recs-section {
   height: 443px;
-  min-width: 1000px;
-  max-width: 1500px;
+  width: 100%;
+  /* min-width: 1000px;
+  max-width: 1500px; */
 }
 .head {
   height: 43px;
-  min-width: 900px;
-  max-width: relative;
-  display: flex; 
-  justify-content: flex-start;
-}
-.head-right{
 
- white-space: nowrap;
-  position: absolute;
-  margin-left: 1210px;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+
 }
-.head-right1{
+.head-right {
+  white-space: nowrap;
+}
+.head-right1 {
   color: gray;
   display: flex;
   flex-flow: nowrap;
-  position: absolute;
-  margin-left: 1300px;
 }
 .head-right1:hover{
 cursor: pointer;
 color: rgb(204, 102, 0);
 }
 .btn-sections {
-  width: 1320px;
+  width: 100%;
   display: flex;
   flex:0;
   justify-content: space-between;
-  
 }
 .right-side {
   display: flex;
@@ -62,24 +59,23 @@ color: rgb(204, 102, 0);
 }
 
 .btn-next-right {
-  color:black;
+  color: black;
   height: 38px;
   width: 38px;
 }
 .btn-next-left {
-  color:black;
+  color: black;
   height: 38px;
   width: 38px;
 }
 
 .items {
   height: 397px;
-  width: 160px;
+  flex: 1;
+
   display: flex;
   flex-direction: row;
-  justify-content: center;
-
-
+  justify-content: space-evenly;
 }
 .arrow-btn {
   box-shadow: 0px 5px 10px 2px rgba(0, 0, 0, 0.2);
@@ -171,7 +167,8 @@ h2.head {
   font-weight: 300;
   font-size: 13px;
 }
-.main-area{
+.main-area {
   display: block;
-  margin: 0px 0px 0px 23px;
+  width: 160px;
+  margin-inline: 4px;
 }
