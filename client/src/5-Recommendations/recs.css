@@ -14,7 +14,7 @@
   height: 43px;
   min-width: 900px;
   max-width: relative;
-  display: flex;
+  display: flex; 
   justify-content: flex-start;
 }
 .head-right{
@@ -30,9 +30,14 @@
   position: absolute;
   margin-left: 1300px;
 }
+.head-right1:hover{
+cursor: pointer;
+color: rgb(204, 102, 0);
+}
 .btn-sections {
   width: 1320px;
   display: flex;
+  flex:0;
   justify-content: space-between;
   
 }
