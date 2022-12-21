@@ -14,9 +14,11 @@
 }
 .head {
   height: 43px;
+
   width: 100%;
   display: flex;
   justify-content: space-between;
+
 }
 .head-right {
   white-space: nowrap;
@@ -26,9 +28,14 @@
   display: flex;
   flex-flow: nowrap;
 }
+.head-right1:hover{
+cursor: pointer;
+color: rgb(204, 102, 0);
+}
 .btn-sections {
   width: 100%;
   display: flex;
+  flex:0;
   justify-content: space-between;
 }
 .right-side {
