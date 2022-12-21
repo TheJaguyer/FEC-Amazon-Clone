@@ -1,38 +1,48 @@
-import ReactStars from 'react-rating-stars-component';
-
-import React, { useState } from 'react';
+import { useState } from 'react';
 
 const ProductReview = (props) => {
-  const starSettings = {
-    size: 40,
-    count: 5,
-    isHalf: false,
-    value: props.rating,
-    color: 'grey',
-    activeColor: 'yellow',
-  };
+  const [count, setCount] = useState(0);
 
- var [count, setCount] = useState(0)
+  function genHelpful() {
+    if (count < 1) {
+      return null;
+    } else if (count === 1) {
+      return <div className="helpful-line">One person found this helpful</div>;
+    } else if (count > 1) {
+      return <div className="helpful-line">{count} people found this helpful</div>;
+    }
+  }
+
+  function genStarOffset() {
+    let base = -22;
+    if (props.rating === 5) {
+      return base + 20;
+    } else if (props.rating === 4) {
+      return base;
+    } else {
+      return base - (4 - props.rating) * 40;
+    }
+  }
+
   return (
     <div className="product-review">
-      <div>
-        
-        <span>{props.username} </span>
-        <h2>{props.title}</h2>
-        <h3>
-          
-          <ReactStars {...starSettings} />
-        </h3>
-        <div>Reviewed in the United States 🇺🇸 on {props.datecreated}</div>
-        <div id="verifiedReview">Verified Review</div>
-
-        <p className="reviewBody">{props.body}</p>
-
-        <div style={{ display: count === 0 ? 'none' : 'flex' }}>{count}</div>
-        <button id="helpful" onClick={() => setCount((prev) => prev + 1)}>
+      <div className="userline">
+        <div className="profile-icon"></div>
+        <div className="username">{props.username}</div>
+      </div>
+      <div className="title-line">
+        <div className="star-image" style={{ backgroundPosition: `-2px ${genStarOffset()}px` }}></div>
+        <div className="review-title">{props.title}</div>
+      </div>
+      <div className="review-date">Reviewed in the United States on {props.datecreated}</div>
+      {props.verifiedreview && <div className="verified">Verified Purchase</div>}
+      <div className="review-body">{props.body}</div>
+      {genHelpful()}
+      <div className="buttons-row">
+        <div className="helpful-button" onClick={() => setCount((prev) => prev + 1)}>
           Helpful
-        </button>
-        <span> | Report Abuse</span>
+        </div>{' '}
+        | <div className="report">Report abuse</div>
       </div>
     </div>
   );

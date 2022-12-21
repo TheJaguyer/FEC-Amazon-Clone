@@ -1,30 +1,39 @@
 .recs-section-big {
-  /*border: 5px solid gray;*/
-
-  min-width: 1000px;
-  max-width: 1500px;
-  margin: 10px;
+  margin-inline: 10px;
+  max-width: 100%;
+  display: flex;
 }
 
 .recs-section {
-  /* border: 0.5px solid gray; */
   height: 443px;
-  min-width: 1000px;
-  max-width: 1500px;
+  width: 100%;
 }
-
 .head {
-  /* border: 0.5px solid gray; */
   height: 43px;
-  min-width: 900px;
-  max-width: relative;
-}
-.btn-sections {
+
+  width: 100%;
   display: flex;
   justify-content: space-between;
 }
+.head-right {
+  white-space: nowrap;
+}
+.head-right1 {
+  color: gray;
+  display: flex;
+  flex-flow: nowrap;
+}
+.head-right1:hover {
+  cursor: pointer;
+  color: rgb(204, 102, 0);
+}
+.btn-sections {
+  width: 100%;
+  display: flex;
+  flex: 0;
+  justify-content: space-between;
+}
 .right-side {
-  /* border: 0.5px solid gray; */
   display: flex;
   justify-content: center;
   align-content: center;
@@ -45,18 +54,23 @@
 }
 
 .btn-next-right {
-  height: 40px;
-  width: 80px;
+  color: black;
+  height: 38px;
+  width: 38px;
 }
-.btn-next-right {
+.btn-next-left {
+  color: black;
   height: 38px;
   width: 38px;
 }
 
 .items {
   height: 397px;
-  width: 160px;
-  /*border: 0.5px solid gray; */
+  flex: 1;
+
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
 }
 .arrow-btn {
   box-shadow: 0px 5px 10px 2px rgba(0, 0, 0, 0.2);
@@ -147,4 +161,9 @@ h2.head {
 .is-prime-delivery {
   font-weight: 300;
   font-size: 13px;
+}
+.main-area {
+  display: block;
+  width: 160px;
+  margin-inline: 4px;
 }

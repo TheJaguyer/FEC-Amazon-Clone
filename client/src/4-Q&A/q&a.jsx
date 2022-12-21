@@ -19,30 +19,25 @@ function AmazonQA() {
       });
   }, []);
 
-  const qaListToShow = showAll ? qaList : qaList.slice(0, 1);
+  const qaListToShow = showAll ? qaList : qaList.slice(0, 2);
 
   return (
     <div className="qa">
-      <h2>Looking for specific info?</h2>
+      <h2 className="looking">Looking for specific info?</h2>
       <span className="qa__search-label">Search product info, Q&A, reviews</span>
       <div className="spacer">
         <span className="qa__search-container">
-          <HiOutlineSearch />
-          <input type="text" placeholder="type a keyword" />
+          <div className="search-icon"></div>
+          <input type="text" placeholder="Type a keyword" className="input-field"></input>
         </span>
       </div>
       <h2 className="qa__header">Customer Questions & Answers</h2>
-      {qaListToShow.map((item, index) => (
-        <div key={item.product_id + index} className="qa__item">
-          <h5 className="qa__item__question">Question: {item.question}</h5>
-          <p className="qa__item__answer">Answer: {item.answer}</p>
-        </div>
+      {qaListToShow.map((item) => (
+        <SingleQA key={item.id} {...item} />
       ))}
       <button type="button" onClick={() => setShowAll(!showAll)} className="qa__show-all-button">
-        {showAll ? 'Show less' : 'Show more'}
+        {showAll ? 'See less' : 'See more answered questions'}
       </button>
-      \
-      <SingleQA />
     </div>
   );
 }

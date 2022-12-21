@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import LanguageModal from './Footer-comps/LanguageModal';
-
+import FooterBottom from './FooterBottom/Footer-bottom'
 import './Footer.css';
 
 function Footer() {
@@ -103,7 +103,9 @@ function Footer() {
           <div className="current-country">United States</div>
         </div>
       </div>
-      <div className="footer-bottom"></div>
+      <div className="footer-bottom">
+      <FooterBottom/>
+      </div>
     </div>
   );
 }

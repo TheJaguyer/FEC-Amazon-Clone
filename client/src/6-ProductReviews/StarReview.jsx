@@ -3,12 +3,12 @@ import React from 'react';
 
 export default function StarRating(props) {
   const starSettings = {
-    size: 40,
     count: 5,
+    size: 30,
     isHalf: false,
     value: props.currentRating,
     color: 'grey',
-    activeColor: 'yellow',
+    activeColor: '#e77600',
     onChange: (newValue) => {
       props.setCurrentRating(newValue);
     },
