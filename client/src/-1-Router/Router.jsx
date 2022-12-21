@@ -8,6 +8,7 @@ export default function Router() {
       <Route path="">
         <Route index element={<App />} />
         <Route path="/newReview" element={<Review />} />
+        <Route path="*" element={<App />} />
       </Route>
     </Routes>
   );

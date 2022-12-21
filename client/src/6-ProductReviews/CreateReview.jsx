@@ -34,7 +34,6 @@ const CreateReview = (props) => {
     let d = new Date();
     newReveiw.datecreated = d.toLocaleDateString();
     props.setReviews((prev) => [...prev, newReveiw]);
-    props.setReviewMode(false);
 
     fetch('https://fec-amazon-back-end.onrender.com/reviews', { method: 'post', body: JSON.stringify(props.reviews) })
       .then((response) => response.json())
@@ -65,13 +64,7 @@ const CreateReview = (props) => {
         style={{ width: '650px' }}
         placeholder={`What's the most important thing to know?`}
       />
-      <div>
-        {/* <h2>Add a photo or Video</h2>
-        <span>Shoppers find images and videos more helpful than text alone.</span>
-        <form>
-          <input type="image"></input>
-        </form> */}
-      </div>
+      <div></div>
       <div>
         <h4>Add Written Review</h4>
 
@@ -86,9 +79,9 @@ const CreateReview = (props) => {
         <br />
         <span>Don't worry, you can always change this on your profile</span>
       </div>
-      <button className="submitReview button" onClick={handleSubmit}>
+      <Link to="/" className="submitReview button" onClick={handleSubmit}>
         Submit
-      </button>
+      </Link>
     </div>
   );
 };
