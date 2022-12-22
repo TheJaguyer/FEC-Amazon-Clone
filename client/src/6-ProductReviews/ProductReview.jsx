@@ -24,6 +24,12 @@ const ProductReview = (props) => {
     }
   }
 
+  function genDate(rawDate) {
+    let date = new Date(rawDate);
+    let output = date.toLocaleDateString();
+    return output;
+  }
+
   return (
     <div className="product-review">
       <div className="userline">
@@ -34,7 +40,7 @@ const ProductReview = (props) => {
         <div className="star-image" style={{ backgroundPosition: `-2px ${genStarOffset()}px` }}></div>
         <div className="review-title">{props.title}</div>
       </div>
-      <div className="review-date">Reviewed in the United States on {props.datecreated}</div>
+      <div className="review-date">Reviewed in the United States on {genDate(props.datecreated)}</div>
       {props.verifiedreview && <div className="verified">Verified Purchase</div>}
       <div className="review-body">{props.body}</div>
       {genHelpful()}
