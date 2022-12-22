@@ -28,7 +28,6 @@ app.use(express.json());
 app.get('/Amazon/:table', (req, res) => {
   pool.query(`SELECT * FROM ${req.params.table}`).then((result) => {
     res.send(result.rows);
-    console.log(result.rows);
   });
 });
 
@@ -73,7 +72,6 @@ app.get('/amazon_qa', (req, res) => {
 /* ========== Recommendation Routes ========== */
 
 app.get('/recs', (req, res) => {
-  console.log(pool)
   pool
     .query('SELECT * FROM recommendations')
     .then((result) => {
