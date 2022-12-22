@@ -17,6 +17,7 @@ const CreateReview = (props) => {
 
   const handleHeadlineChange = (event) => {
     setHeadline(event.target.value);
+    console.log(headline);
   };
   const handleReviewChange = (event) => {
     setReview(event.target.value);
@@ -35,7 +36,15 @@ const CreateReview = (props) => {
     newReview.datecreated = d.toLocaleDateString();
     props.setReviews((prev) => [...prev, newReview]);
 
-    fetch('https://fec-amazon-back-end.onrender.com/reviews', { method: 'POST', body: JSON.stringify(newReview) })
+    fetch('http://localhost:8000/reviews', {
+      method: 'POST',
+      body: JSON.stringify(newReview),
+      mode: 'cors',
+      credentials: 'same-origin',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    })
       .then((response) => response.json())
       .then((data) => {
         console.log(data);
@@ -79,7 +88,7 @@ const CreateReview = (props) => {
         <br />
         <span>Don't worry, you can always change this on your profile</span>
       </div>
-      <Link to="/" className="submitReview button">
+      <Link to="/" onClick={handleSubmit} className="submitReview button">
         Submit
       </Link>
     </div>
