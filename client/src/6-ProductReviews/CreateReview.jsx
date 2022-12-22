@@ -17,7 +17,6 @@ const CreateReview = (props) => {
 
   const handleHeadlineChange = (event) => {
     setHeadline(event.target.value);
-    console.log(headline);
   };
   const handleReviewChange = (event) => {
     setReview(event.target.value);
