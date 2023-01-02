@@ -22,7 +22,6 @@ There are multiple ways to access and deploy this product.
 
 The database, backend server, and static site are all deployed on render at the following links.
 
-- [PSQL database](postgres://amazon_database_user:nYGWZMX6yX9VPlfHHRIkw2ACQL7qByss@dpg-ced088sgqg459grtpok0-a.oregon-postgres.render.com/amazon_database)
 - [Back-End](https://fec-amazon-back-end.onrender.com)
 - [Front-End](https://fec-amazon-front-end.onrender.com)
 
