@@ -1,28 +1,53 @@
-# FEC-Amazon-Clone
+# Front End Capstone - Amazon
 
-A clone of an amazon page for a controller
+A simplified clone of the product page for an Xbox controller on Amazon.
 
-# How to merge your work to the dev branch
+![Feature Gif](./Screenshots/amazonclone.gif)
 
-1. to make a new branch for your own work
+## Authors
 
-- git fetch -p (this command makes your branch names align with those at the remote origin)
-- git checkout dev
-- git pull (this is to ensure you have the most up-to-date work to start with)
-- git checkout -b <nameyourbranch>
+- [Jarrett Guyer](https://github.com/TheJaguyer)
 
-2. when your branch is ready to be pushed
+- [Aaron Rybicki](https://github.com/aaonrybicki)
 
-- git add \*
-- git commit -m 'whatever you want to write'
-- git push (should say your banch doesn't exist at origin)
-- copy and past the new push command and run it
+- [Roohullah Mansoor](https://github.com/roymansoor)
 
-3. go to github and create a pull request from your new branch to dev
+- [Kadynce Krank](https://github.com/kadync3)
 
-4. wait for someone to review and merge
+## Deployment
 
-5. update your dev branch again to see if it all works
+There are multiple ways to access and deploy this product.
 
-- git checkout dev
-- git pull
+### Access Render Deployment
+
+The database, backend server, and static site are all deployed on render at the following links.
+
+- [PSQL database](postgres://amazon_database_user:nYGWZMX6yX9VPlfHHRIkw2ACQL7qByss@dpg-ced088sgqg459grtpok0-a.oregon-postgres.render.com/amazon_database)
+- [Back-End](https://fec-amazon-back-end.onrender.com)
+- [Front-End](https://fec-amazon-front-end.onrender.com)
+
+### Run server locally, but access deployed database
+
+In the back-end folder, run this command:
+
+```bash
+  npm run local
+```
+
+The server will listen on port 8000.
+
+### Run server locally, with local PSQL docker container
+
+In the back-end folder, run this command:
+
+```bash
+  npm run dev
+```
+
+The server will listen on port 8000, and look for a psql database named 'amazon' at port 5432. You may choose to run the below command to create a docker container with matching information.
+
+```bash
+  npm run docker
+```
+
+Various migration and seed files are available within back-end/SQLFiles.

@@ -1,5 +1,4 @@
 import { useEffect, useState } from 'react';
-import { HiOutlineSearch } from 'react-icons/all';
 import './q&a.css';
 import SingleQA from './SingleQA/SingleQA.jsx';
 
